@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  SafeAreaView,
+  SafeAreaView,ScrollView,
     Image, View, Text,ImageBackground
 } from 'react-native';
+/////////////////app images////////////
+import { appImages } from '../../../constant/images';
 
 ////////////////app components////////////////
 import CustomButtonhere from '../../../components/Button/CustomButton';
@@ -11,9 +13,12 @@ import CustomButtonhere from '../../../components/Button/CustomButton';
 import { TextInput,Snackbar } from 'react-native-paper';
 
 /////////////////////app styles/////////////////////
-import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
+import AuthTextstyles from '../../../utills/AuthSameStyles/AuthTextstyles';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 /////////////api/////////
 import axios from 'axios';
@@ -101,46 +106,58 @@ const formValidation = async () => {
     //SplashScreen.hide();
   }, []);
   return (
+    <SafeAreaView style={styles.container}>
+            <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
 
-    <ImageBackground source={require('../../../assets/AuthPic/authpic.png')}
-      resizeMode="cover" style={styles.container}>
-        <View style={Authstyles.imageview}>
+<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+        <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
-                 source={require('../../../assets/Logo/logo.png')}
-                    style={Authstyles.image}
-                    resizeMode='stretch'
+                 source={appImages.backicon}
+                    style={{height:hp(2.5),width:wp(6)}}
+                    resizeMode='contain'
                 />
-                 <Text style={Authstyles.imagetext}>Doctor</Text>
             </View>
-<View style={Authstyles.maintextview}>
-            <Text style={Authstyles.toptext}>Forget Password</Text>
-            <Text style={Authstyles.subtext}>Lorem ipsum dolor sit amet, 
-            consetetur sadipscing elitr, sed diam
+      <View style={styles.imageview}>
+              <Image
+                              source={appImages.forgettop}
+                  style={styles.image}
+                  resizeMode='cover'
+              />
+          </View>
+
+            </View>
+<View style={AuthTextstyles.maintextview}>
+            <Text style={AuthTextstyles.toptext}>Forget Password</Text>
+            <Text style={AuthTextstyles.subtext}>Enter email to get a verification code
             </Text>
           </View>
      
-      <View style={styles.inputview}>
-          <View style={styles.inputflex}>
+      <View style={AuthInputstyles.inputview}>
       <TextInput
             label={'Email'}
             onChangeText={setEmail}
             autoFocus={true}
-            style={styles.inputeditable}
+            style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
             keyboardType='email-address'
             autoCapitalize={'none'}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Enter your Email'}
           />
-     </View>
+
         </View> 
   <View style={styles.buttonview}>
             <CustomButtonhere
               title={'Send Code'}
-              widthset={'70%'}
+              widthset={'80%'}
               loading={loading}
               disabled={disable}
-              onPress={() => formValidation()}
+              //onPress={() => formValidation()}
+              onPress={() =>     navigation.navigate('Verification')}
             /></View>
                                <Snackbar
           duration={400}
@@ -153,7 +170,8 @@ const formValidation = async () => {
           }}>
           {snackbarValue.value}
         </Snackbar>
-    </ImageBackground>
+        </ScrollView> 
+</SafeAreaView>
 
   )
 };

@@ -1,8 +1,11 @@
 import React, { useEffect, useState,useRef } from 'react';
 import {
-  SafeAreaView,
-    Image, View, Text, TouchableOpacity, StatusBar, ImageBackground
+  SafeAreaView,ScrollView,
+    Image, View, Text, TouchableOpacity,
 } from 'react-native';
+
+/////////////////app images////////////
+import { appImages } from '../../../constant/images';
 
 ////////////////app components//////////////
 import LottieModal from '../../../components/LottieModal/LottieModal';
@@ -12,10 +15,15 @@ import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibili
 //////////////////app pakages////////////
 import { TextInput,Snackbar } from 'react-native-paper';
 
-/////////////appp styles///////////////////
+////////////app styles//////////////
 import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
+import AuthLastTextstyles from '../../../utills/AuthSameStyles/AuthLastText';
+import AuthTextstyles from '../../../utills/AuthSameStyles/AuthTextstyles';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 //////////////////////////app api/////////////////////////
 import axios from 'axios';
@@ -145,26 +153,27 @@ const formValidation = async () => {
   }, []);
   return (
 
-    <ImageBackground source={require('../../../assets/AuthPic/authpic.png')}
-      resizeMode="cover" style={styles.container}>
-             <StatusBar backgroundColor={'white'} barStyle="dark-content"/>
+    <SafeAreaView style={styles.container}>
+            <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+
         <View style={Authstyles.imageview}>
                 <Image
-                 source={require('../../../assets/Logo/logo.png')}
-                    style={Authstyles.image}
-                    resizeMode='stretch'
+                 source={appImages.signintop}
+                    style={styles.image}
+                    resizeMode='cover'
                 />
-                 <Text style={Authstyles.imagetext}>Doctor</Text>
             </View>
-<View style={Authstyles.maintextview}>
-            <Text style={Authstyles.toptext}>Welcome  Back</Text>
-            <Text style={Authstyles.subtext}>Lorem ipsum dolor sit amet, 
-            consetetur sadipscing elitr, sed diam
+
+<View style={AuthTextstyles.maintextview}>
+            <Text style={AuthTextstyles.toptext}>Sign In</Text>
+            <Text style={AuthTextstyles.subtext}>Welcome back
             </Text>
           </View>
      
-      <View style={styles.inputview}>
-          <View style={styles.inputflex}>
+      <View style={AuthInputstyles.inputview}>
       <TextInput
             label={'Email'}
             onChangeText={setEmail}
@@ -172,29 +181,30 @@ const formValidation = async () => {
             onSubmitEditing={() => { ref_input2.current.focus()}}
             blurOnSubmit={false}
             autoFocus = {true}
-            style={styles.inputeditable}
+            style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
             keyboardType='email-address'
             autoCapitalize='none'
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Enter your Email'}
           />
-     </View>
-     <View style={styles.inputflex}>
+
       <TextInput
         ref={ref_input2}
             label={'Password'}
             onChangeText={setPassword}
-            style={styles.inputeditable}
+            style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
            secureTextEntry={passwordVisibility}
            enablesReturnKeyAutomatically
-           right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+           right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
            onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+           placeholderTextColor={Colors.greytext}
+           placeholder={'Enter Password'}
           />
-     </View>
+
 
             <View style={styles.forgettextview}>
             <TouchableOpacity
@@ -209,16 +219,16 @@ const formValidation = async () => {
         </View> 
   <View style={styles.buttonview}>
             <CustomButtonhere
-              title={'LOGIN'}
-              widthset={'70%'}
+              title={'Sign In'}
+              widthset={'80%'}
               loading={loading}
               disabled={disable}
-              onPress={() => setModalVisible(true)}
+              onPress={() => navigation.navigate('BottomTab')}
             /></View>
-                      <View style={Authstyles.lasttextview}>
-        <Text style={Authstyles.lasttext}>Don't have an account? </Text>
+                      <View style={AuthLastTextstyles.lasttextview}>
+        <Text style={AuthLastTextstyles.lasttext}>Don't have an account? </Text>
         <TouchableOpacity  onPress={() => navigation.navigate('Signup')}>
-        <Text style={Authstyles.lasttext1}>Sign Up</Text>
+        <Text style={AuthLastTextstyles.lasttext1}>Sign Up</Text>
         </TouchableOpacity>
       </View>
       <Snackbar
@@ -238,8 +248,9 @@ const formValidation = async () => {
               text={'Password Updated'}
           buttontext={'Go to Login'}
  onPress={()=> {setModalVisible(false)}}
-                /> 
-    </ImageBackground>
+                />
+                </ScrollView> 
+</SafeAreaView>
 
   )
 };

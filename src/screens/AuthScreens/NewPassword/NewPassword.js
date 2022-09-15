@@ -1,8 +1,11 @@
 import React, { useEffect, useState,useRef } from 'react';
 import {
-  SafeAreaView, 
+  SafeAreaView, ScrollView,
     Image, View, Text, TouchableOpacity, StatusBar, ImageBackground
 } from 'react-native';
+
+////////////app images////////////////
+import { appImages } from '../../../constant/images';
 
 ////////////////app components//////////////
 import CustomModal from '../../../components/Modal/CustomModal';
@@ -16,10 +19,15 @@ import Feath from 'react-native-vector-icons/Feather';
 //////////////////app pakages/////////////////
 import { TextInput,Snackbar } from 'react-native-paper';
 
-//////////////////app styles////////////////
+////////////app styles//////////////
 import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
+import AuthLastTextstyles from '../../../utills/AuthSameStyles/AuthLastText';
+import AuthTextstyles from '../../../utills/AuthSameStyles/AuthTextstyles';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 //////////////////////////app api/////////////////////////
 import axios from 'axios';
@@ -116,25 +124,34 @@ useEffect(() => {
   }, []);
   return (
 
-    <ImageBackground source={require('../../../assets/AuthPic/authpic.png')}
-      resizeMode="cover" style={styles.container}>
-        <View style={Authstyles.imageview}>
+<SafeAreaView style={styles.container}>
+                  <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+        <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
-                 source={require('../../../assets/Logo/logo.png')}
-                    style={Authstyles.image}
-                    resizeMode='stretch'
+                 source={appImages.backicon}
+                    style={{height:hp(2.5),width:wp(6)}}
+                    resizeMode='contain'
                 />
-                 <Text style={Authstyles.imagetext}>Doctor</Text>
             </View>
-<View style={Authstyles.maintextview}>
-            <Text style={Authstyles.toptext}> New Password</Text>
-            <Text style={Authstyles.subtext}>Lorem ipsum dolor sit amet, 
-            consetetur sadipscing elitr, sed diam
+      <View style={styles.imageview}>
+              <Image
+                              source={appImages.signuptop}
+                  style={styles.image}
+                  resizeMode='cover'
+              />
+          </View>
+            </View>
+<View style={AuthTextstyles.maintextview}>
+            <Text style={AuthTextstyles.toptext}>Reset Password</Text>
+            <Text style={AuthTextstyles.subtext}>Create a strong password
             </Text>
           </View>
      
-      <View style={styles.inputview}>
-          <View style={styles.inputflex}>
+      <View style={AuthInputstyles.inputview}>
           <TextInput
             label={'Password'}
             onChangeText={setPassword}
@@ -142,36 +159,36 @@ useEffect(() => {
             onSubmitEditing={() => { ref_input2.current.focus()}}
             blurOnSubmit={false}
             autoFocus = {true}
-            style={styles.inputeditable}
+            style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
             secureTextEntry={passwordVisibility}
             enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Enter Password'}
           />
-     </View>
-     <View style={styles.inputflex}>
+
       <TextInput
             ref={ref_input2}
             label={'Confirm Password'}
             onChangeText={setConfirmPassword}
-            style={styles.inputeditable}
+            style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
             secureTextEntry={passwordVisibility}
             enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Enter Password'}
           />
      </View>
-        </View> 
   <View style={styles.buttonview}>
             <CustomButtonhere
-              title={'Update'}
-              widthset={'70%'}
+              title={'Reset'}
+              widthset={'80%'}
               loading={loading}
               disabled={disable}
               onPress={() => formValidation()}
@@ -201,7 +218,8 @@ useEffect(() => {
           }}>
           {snackbarValue.value}
         </Snackbar>
-    </ImageBackground>
+        </ScrollView> 
+</SafeAreaView>
 
   )
 };

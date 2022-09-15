@@ -12,15 +12,17 @@ const CustomButtonhere = ({
     onPress,
     loading,
     disable,
-    widthset
+    widthset,
+    state
 }) => {
 
     return(
 <View style={styles.container}>
   <Button 
+    uppercase={false}
   color={Colors.Appthemecolor}
   icon={icon} 
-  mode={mode}
+  mode={state === true?'outlined':"contained"}
   contentStyle={[styles.buttoncontent,{width:wp(widthset)}]}
   style={[styles.button,{width:wp(widthset)}]}
   labelStyle={styles.label}

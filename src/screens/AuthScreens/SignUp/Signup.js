@@ -1,7 +1,10 @@
 import React, { useEffect, useState,useRef } from 'react';
 import {
-  Image, View, Text, TouchableOpacity, StatusBar, ImageBackground
+  Image, View, Text, TouchableOpacity,SafeAreaView,ScrollView
 } from 'react-native';
+
+//////////////app images///////////
+import { appImages } from '../../../constant/images';
 
 ////////////////app components//////////////
 import CustomButtonhere from '../../../components/Button/CustomButton';
@@ -13,15 +16,23 @@ import { TextInput,Snackbar } from 'react-native-paper';
 //////////////app icons///////////////
 import Feath from 'react-native-vector-icons/Feather';
 
+///////////////////app pakages date time picker/////////////
+import moment from 'moment'
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 ////////////app styles//////////////
 import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
+import AuthLastTextstyles from '../../../utills/AuthSameStyles/AuthLastText';
+import AuthTextstyles from '../../../utills/AuthSameStyles/AuthTextstyles';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 ////////////////////app api//////////////////
 import axios from 'axios';
 import { BASE_URL } from '../../../utills/ApiRootUrl';
-
 
 const Signup = ({ navigation }) => {
 
@@ -91,44 +102,123 @@ else if (Password=='') {
 
     //SplashScreen.hide();
   }, []);
+  ////////////////datetime picker states////////////////
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [showyearwise, setshowyearwise] = useState(false);
+  const [showdaywise, setshowdaywise] = useState('');
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+    var d = new Date();
+    d = selectedDate
+    // console.log(d)
+    //console.log(selectedDate)
+    if (d != undefined) {
+      let year = d.getFullYear();
+      let month = (d.getMonth() + 1).toString().padStart(2, "0");
+      let day = d.getDate().toString().padStart(2, "0");
+      console.log(year + '-' + month + '-' + day);
+      console.log(typeof (year + '-' + month + '-' + day))
+      setshowyearwise(year + "-" + month + "-" + day)
+      setshowdaywise(day + "-" + month + "-" + year)
+      //console('date',showyearwise)
+    }
+  
+  }
+
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+    console.log('mode',mode)
+  };
+  
+  const showDatepicker = () => {
+    showMode('date');
+  };
   
   return (
 
-    <ImageBackground source={require('../../../assets/AuthPic/authpic.png')}
-    resizeMode="cover" style={styles.container}>
-        
-      <View style={Authstyles.imageview}>
+    <SafeAreaView style={styles.container}>
+                  <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        {show && (
+<DateTimePicker
+testID="dateTimePicker"
+value={date}
+mode={mode}
+display="default"
+locale="es-ES"
+themeVariant="light"
+onChange={onChange}
+style={{
+shadowColor: '#fff',
+shadowRadius: 0,
+shadowOpacity: 1,
+shadowOffset: { height: 0, width: 0 },
+color:'#1669F',
+textColor:'#1669F'
+}}
+/>
+)}
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+        <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
+                <Image
+                 source={appImages.backicon}
+                    style={{height:hp(2.5),width:wp(6)}}
+                    resizeMode='contain'
+                />
+            </View>
+      <View style={styles.imageview}>
               <Image
-                  source={require('../../../assets/Logo/logo.png')}
-                  style={Authstyles.image}
-                  resizeMode='stretch'
+                              source={appImages.signuptop}
+                  style={styles.image}
+                  resizeMode='cover'
               />
-                            <Text style={Authstyles.imagetext}>Doctor</Text>
           </View>
-<View style={Authstyles.maintextview}>
-          <Text style={Authstyles.toptext}>Welcome </Text>
-          <Text style={Authstyles.subtext}>Sign up to get started
-           and experience
-great shopping deals
+
+            </View>
+<View style={AuthTextstyles.maintextview}>
+          <Text style={AuthTextstyles.toptext}>Sign Up</Text>
+          <Text style={AuthTextstyles.subtext}>Create an account
           </Text>
         </View>
    
-    <View style={styles.inputview}>
-    <View style={styles.inputflex}>
+    <View style={AuthInputstyles.inputview}>
     <TextInput
-          label={'UserName'}
+          label={'Name'}
           returnKeyType = {"next"}
           onSubmitEditing={() => { ref_input2.current.focus()}}
           blurOnSubmit={false}
           autoFocus = {true}
           onChangeText={setUsername}
-          style={styles.inputeditable}
+          style={AuthInputstyles.inputeditable}
+          underlineColor={Colors.appgreycolor}
+          activeUnderlineColor={Colors.appgreycolor}
+          placeholderTextColor={Colors.greytext}
+          placeholder={'Enter your Name'}
+        />
+   <TouchableOpacity  onPress={showDatepicker}>
+    <TextInput
+          label={'Date of birth'}
+          onChangeText={onChange}
+          value={showdaywise}
+          editable={false}
+          style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
           placeholderTextColor={'black'}
+          right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons} 
+          onPress={showDatepicker}
+ />}
         />
-   </View>
-   <View style={styles.inputflex}>
+   </TouchableOpacity>
     <TextInput
       ref={ref_input2}
           label={'Email'}
@@ -136,29 +226,26 @@ great shopping deals
           returnKeyType = {"next"}
           onSubmitEditing={() => { ref_input3.current.focus()}}
           blurOnSubmit={false}
-          style={styles.inputeditable}
+          style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
           keyboardType='email-address'
         autoCapitalize='none'
           placeholderTextColor={'black'}
         />
-   </View>
-   <View style={styles.inputflex}>
     <TextInput
          ref={ref_input3}
           label={'Password'}
           onChangeText={setPassword}
-          style={styles.inputeditable}
+          style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
           secureTextEntry={passwordVisibility}
           enablesReturnKeyAutomatically
-          right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+          right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
           onPress={handlePasswordVisibility}   />}
           placeholderTextColor={'black'}
         />
-   </View>
       </View>
 
   
@@ -166,17 +253,17 @@ great shopping deals
 <View style={styles.buttonview}>
           <CustomButtonhere
             title={'Sign Up'}
-            widthset={'70%'}
+            widthset={'80%'}
             loading={loading}
             disabled={disable}
             onPress={() => formValidation()}
           />
    
           </View>
-          <View style={Authstyles.lasttextview}>
-        <Text style={Authstyles.lasttext}>Already have an account.</Text>
+          <View style={AuthLastTextstyles.lasttextview}>
+        <Text style={AuthLastTextstyles.lasttext}>Already have an account.</Text>
         <TouchableOpacity  onPress={() => navigation.navigate('Login')}>
-        <Text style={Authstyles.lasttext1}>Sign In</Text>
+        <Text style={AuthLastTextstyles.lasttext1}>Sign In</Text>
         </TouchableOpacity>
       </View>
       <Snackbar
@@ -190,7 +277,8 @@ great shopping deals
           }}>
           {snackbarValue.value}
         </Snackbar>
-  </ImageBackground>
+      </ScrollView>
+</SafeAreaView>
 
   )
 };

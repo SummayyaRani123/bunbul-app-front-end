@@ -11,39 +11,18 @@ const styles = StyleSheet.create({
   container:
   {
     flex: 1,
-    justifyContent: "center",
-    alignContent: 'center'
+backgroundColor:"white"
   },
-
-  inputview:
-  {
-    width: wp('90%'),
-    height:wp('100%'),
-    alignSelf: 'center',
-    alignContent:"center",
-    //backgroundColor: "red",
+  image: {
+    height:hp(25),
+    width:wp(65),
   },
-  inputflex:
-  {
-
-    justifyContent:'center',
-          //backgroundColor:'green'
-          },
-  inputeditable:{
-    //marginTop:13,
-    backgroundColor:'white',
-    width: wp('84%'),
-    marginLeft:'3%',
-    fontSize:hp('1.5%'),
-    fontWeight:'bold',
-    color:'black',
-},
 
   buttonview:
   { 
 
       justifyContent: 'center',
-      //backgroundColor:'yellow'
+marginTop:hp(30)
       },
       Cellview:{
         //flexDirection:'row',

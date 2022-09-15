@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Image, View, Text, ImageBackground
+    Image, View, Text, SafeAreaView,ScrollView,
 } from 'react-native';
+///////////////app images//////////////
+import { appImages } from '../../../constant/images';
 
 /////////////////app components/////////////////
 import CustomButtonhere from '../../../components/Button/CustomButton';
@@ -9,10 +11,13 @@ import CustomButtonhere from '../../../components/Button/CustomButton';
 //////////////app icons/////////////
 import Feath from 'react-native-vector-icons/Feather';
 
-/////////////app styles/////////////////
-import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
+/////////////////////app styles/////////////////////
+import AuthTextstyles from '../../../utills/AuthSameStyles/AuthTextstyles';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 ///////////////app code fields/////////////
 import {
@@ -66,20 +71,29 @@ const Verification = ({ navigation,route }) => {
   },[]);
   return (
 
-    <ImageBackground source={require('../../../assets/AuthPic/authpic.png')}
-    resizeMode="cover" style={styles.container}>
-      <View style={Authstyles.imageview}>
+    <SafeAreaView style={styles.container}>
+<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+        <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
+                <Image
+                 source={appImages.backicon}
+                    style={{height:hp(2.5),width:wp(6)}}
+                    resizeMode='contain'
+                />
+            </View>
+      <View style={styles.imageview}>
               <Image
-               source={require('../../../assets/Logo/logo.png')}
-                  style={Authstyles.image}
-                  resizeMode='stretch'
+                              source={appImages.forgettop}
+                  style={styles.image}
+                  resizeMode='cover'
               />
-               <Text style={Authstyles.imagetext}>Doctor</Text>
           </View>
-<View style={Authstyles.maintextview}>
-          <Text style={Authstyles.toptext}>Verify Code</Text>
-          <Text style={Authstyles.subtext}>Lorem ipsum dolor sit amet, 
-          consetetur sadipscing elitr, sed diam
+
+            </View>
+
+<View style={AuthTextstyles.maintextview}>
+          <Text style={AuthTextstyles.toptext}>Verification</Text>
+          <Text style={AuthTextstyles.subtext}>Enter code that we have sent on 
+you email
           </Text>
         </View>
    
@@ -109,9 +123,11 @@ const Verification = ({ navigation,route }) => {
           <CustomButtonhere
             title={'Send Code'}
             widthset={'70%'}
-            onPress={() => verifyno()}
+            //onPress={() => verifyno()}
+            onPress={()=>     navigation.navigate('NewPassword')}
           /></View>
-  </ImageBackground>
+
+</SafeAreaView>
 
   )
 };

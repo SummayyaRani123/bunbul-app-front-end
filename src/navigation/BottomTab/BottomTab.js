@@ -12,6 +12,7 @@ const Tab = createBottomTabNavigator();
 //screeens 
 import Home from '../../screens/BottomTabScreens/MainScreen/Home';
 import Notification from '../../screens/BottomTabScreens/Notification/Notification';
+
 //import Account from '../../screens/BottomTabScreens/Account/Account';
 
 

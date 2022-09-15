@@ -2,9 +2,17 @@ import React from 'react';
 import {StyleSheet,
 Dimensions
 } from 'react-native';
+//////////app colors//////////
 import Colors from '../../utills/Colors';
+
+/////////////app fonts///////////
+import { fontFamily } from '../../constant/fonts';
+
+////////////styles pakage///////////
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} 
 from 'react-native-responsive-screen';
+
+
 const styles = StyleSheet.create({
     container:
     {
@@ -29,9 +37,9 @@ button:
 },
 label:
 {
-    color:'black',
+    color:'white',
     fontSize: hp('1.8%') ,
-    fontWeight:'bold',
+  fontFamily: fontFamily.Poppins_SemiBold,
     backgroundColor:Colors.Appthemecolor,
 },
 buttoncontent1:

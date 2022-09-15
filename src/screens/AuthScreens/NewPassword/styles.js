@@ -13,52 +13,18 @@ const styles = StyleSheet.create({
   container:
   {
     flex: 1,
-    justifyContent: "center",
-    alignContent: 'center'
-  },
+    backgroundColor:"white"
+    },
+    image: {
+      height:hp(25),
+      width:wp(65),
+    },
+  
 
-  inputview:
-  {
-    width: wp('90%'),
-    height:wp('100%'),
-    alignSelf: 'center',
-    alignContent:"center",
-    //backgroundColor: "red",
-  },
-  inputflex:
-  {
-    justifyContent:'center',
-          //backgroundColor:'green'
-          },
-  inputeditable:{
-    //marginTop:13,
-    backgroundColor:'white',
-    width: wp('84%'),
-    marginLeft:'3%',
-    fontSize:hp('1.5%'),
-    fontWeight:'bold',
-    color:'black',
-},
-forgettextview:
-{
-  justifyContent: 'flex-end',
-  alignSelf: 'flex-end',
-  marginTop: wp('2%'),
-  marginRight: '8%',
-  marginTop: '5%'
-
-},
-forgettext:
-{
-  color: Colors.Appthemecolor,
-  fontWeight: '300',
-  fontSize: hp('1.8%'),
-  marginBottom: wp('3%'),
-},
   buttonview:
   { 
       justifyContent: 'center',
-      //backgroundColor:'yellow'
+   marginTop:hp(25)
       },
 });
 export default styles;

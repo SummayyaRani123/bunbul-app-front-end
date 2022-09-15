@@ -20,12 +20,13 @@ const Authstyles = StyleSheet.create({
   imageview:
   { 
        justifyContent: 'flex-end',
-       alignItems:'center'
+ alignItems:"flex-end",
+ alignSelf:'flex-end'
 //backgroundColor:"red"
 },
 image: {
-  height:60,
-  width:110,
+  height:hp(20),
+  width:wp(80),
 },
 imagetext:
 {
@@ -90,6 +91,9 @@ imagetext:
     flexDirection: 'row',
      alignContent:'center',
     justifyContent:'center',
+  bottom:wp(5),
+  position:'absolute',
+  alignSelf:'center'
    // backgroundColor:'red' 
   },
   lasttext:

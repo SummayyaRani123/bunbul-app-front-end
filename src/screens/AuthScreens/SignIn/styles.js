@@ -4,61 +4,44 @@ import {
   Dimensions
 } from 'react-native';
 import Colors from '../../../utills/Colors';
-const Width = Dimensions.get("screen").width;
-const Height = Dimensions.get("screen").height;
+
 import { widthPercentageToDP as wp, heightPercentageToDP as hp }
   from 'react-native-responsive-screen';
+  import { fontFamily } from '../../../constant/fonts';
 
 const styles = StyleSheet.create({
   container:
   {
     flex: 1,
-    justifyContent: "center",
-    alignContent: 'center'
+backgroundColor:'white'
+  },
+  image: {
+    height:hp(25),
+    width:wp(100),
   },
 
-  inputview:
-  {
-    width: wp('90%'),
-    height:wp('100%'),
-    alignSelf: 'center',
-    alignContent:"center",
-    //backgroundColor: "red",
-  },
-  inputflex:
-  {
-   justifyContent:'center',
-          //backgroundColor:'green'
-          },
-  inputeditable:{
-    //marginTop:13,
-    backgroundColor:'white',
-    width: wp('84%'),
-    marginLeft:'3%',
-    fontSize:hp('1.5%'),
-    fontWeight:'bold',
-    color:'black',
-},
+
 forgettextview:
 {
   justifyContent: 'flex-end',
   alignSelf: 'flex-end',
   marginTop: wp('2%'),
-  marginRight: '8%',
-  marginTop: '5%'
+  marginRight:wp(4),
+  marginTop:hp(1)
 
 },
 forgettext:
 {
   color: Colors.Appthemecolor,
-  fontWeight: '600',
-  fontSize: hp('1.9%'),
+  fontFamily:fontFamily.Poppins_Medium,
+  fontSize: hp(1.5),
   marginBottom: wp('3%'),
 },
   buttonview:
   { 
       justifyContent: 'center',
-      //backgroundColor:'yellow'
+      alignSelf:'center',
+      marginTop:hp(20)
       },
 });
 export default styles;
