@@ -11,6 +11,10 @@ import { Store } from './src/redux/store';
 import AuthNav from './src/navigation/AuthNav/AuthNav';
 import BottomTab from './src/navigation/BottomTab/BottomTab';
 import SliderScreen from './src/screens/StackScreens/SliderScreeen/SliderScreen';
+import Settings from './src/screens/StackScreens/Settings/Settings';
+import UpdateProfile from './src/screens/StackScreens/UpdateProfile/UpdateProfile';
+import EditBundle from './src/screens/StackScreens/Edit Bundle/EditBundle';
+
 
 const Stack = createNativeStackNavigator();
 function App() {
@@ -27,6 +31,18 @@ function App() {
         headerShown: false,
         }} />
         <Stack.Screen name="SliderScreen" component={SliderScreen}
+        options={{
+        headerShown: false,
+        }} />
+         <Stack.Screen name="Settings" component={Settings}
+        options={{
+        headerShown: false,
+        }} />
+        <Stack.Screen name="UpdateProfile" component={UpdateProfile}
+        options={{
+        headerShown: false,
+        }} />
+                <Stack.Screen name="EditBundle" component={EditBundle}
         options={{
         headerShown: false,
         }} />

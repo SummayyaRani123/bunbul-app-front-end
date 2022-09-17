@@ -158,7 +158,6 @@ const formValidation = async () => {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-
         <View style={Authstyles.imageview}>
                 <Image
                  source={appImages.signintop}

@@ -2,6 +2,7 @@ import React from 'react';
 import {View,Text,TouchableOpacity,Modal,Image} from 'react-native';
 import styles from './styles';
 import Lottie from 'lottie-react-native';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const LottieModal = (props) => {
 
@@ -14,9 +15,18 @@ const LottieModal = (props) => {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-      
-<Lottie source={require('./SuccesModal.json')}  autoPlay style={styles.animatedIcon}/>
-              <View style={{justifyContent:'center', 
+          
+            <View style={{justifyContent:'center', alignSelf:'center',
+              alignItems:'center',marginBottom:heightPercentageToDP(5),
+              marginTop:heightPercentageToDP(5),
+              //backgroundColor:'red',
+              alignSelf:'center',height:heightPercentageToDP(20)}}>
+<Lottie source={require('./SuccesModal.json')} autoplay style={styles.animatedIcon}/>
+</View>
+<TouchableOpacity onPress={()=> props.CloseModal}>
+                
+                </TouchableOpacity>
+              {/* <View style={{justifyContent:'center', 
               alignItems:'center',marginBottom:15,
               alignSelf:'center'}}>
                        <Text style={styles.modaltext}>
@@ -29,7 +39,7 @@ const LottieModal = (props) => {
         onPress={props.onPress}>
         <Text style={styles.Pendingtext}>{props.buttontext}</Text>
         </TouchableOpacity>
-    </View>
+    </View> */}
             </View>
           </View>
         </Modal>

@@ -11,14 +11,15 @@ const HorizontalCardstyles = StyleSheet.create({
 /////////////////////horizonta card design////////////////////
 
   container: {
-    width:wp(100),
-    alignItems: 'center',
+    //width:wp(100),
+    //alignItems: 'center',
     marginTop: 25,
+    
   },
   cardContainer: {
     width: wp(94),
-    height: hp(35),
-        borderBottomLeftRadius:wp(6),
+    height: hp(20),
+    borderBottomLeftRadius:wp(6),
     borderBottomRightRadius:wp(6),
     borderRadius:wp(10),
     shadowColor: '#000',
@@ -29,6 +30,7 @@ const HorizontalCardstyles = StyleSheet.create({
     shadowOpacity: 0.75,
     //shadowRadius: 5,
     elevation: 5,
+ 
   },
   imageStyle: {
     height: hp(25),

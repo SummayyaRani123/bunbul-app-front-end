@@ -4,6 +4,7 @@ const IMAGES_DIR = '../../assets/images/';
 
 const appImages = {
   logo: require(IMAGES_DIR + 'logo.png'),
+  user: require(IMAGES_DIR + 'user.png'),
   splash: require(IMAGES_DIR + 'Splash.png'),
   slider1:require(IMAGES_DIR + 'slide1.png'),
   slider2:require(IMAGES_DIR + 'slide2.png'),

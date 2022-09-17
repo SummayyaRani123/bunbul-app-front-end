@@ -5,9 +5,9 @@ import {
 } from 'react-native';
 
 ////////////////app components/////////////
-import CamerBottomSheet from '../../components/CameraBottomSheet/CameraBottomSheet';
-import { TogglePasswordVisibility } from '../../utills/TogglePasswordVisibility';
-import CustomButtonhere from '../../components/Button/CustomButton';
+import CamerBottomSheet from '../../../components/CameraBottomSheet/CameraBottomSheet';
+import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
+import CustomButtonhere from '../../../components/Button/CustomButton';
 
 /////////////////////app pakages///////////////
 import { TextInput, Avatar} from 'react-native-paper';
@@ -16,17 +16,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 /////////////app styles////////////////
 import styles from './styles';
-import Colors from '../../utills/Colors';
+import AuthInputstyles from '../../../utills/AuthSameStyles/AuthInputstyles';
+import Colors from '../../../utills/Colors';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp }
   from 'react-native-responsive-screen';
 
 //////////////////////////app api/////////////////////////
 import axios from 'axios';
-import { BASE_URL } from '../../utills/ApiRootUrl';
+import { BASE_URL } from '../../../utills/ApiRootUrl';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNFetchBlob from 'rn-fetch-blob'
 
-const Profile = ({ navigation }) => {
+const UpdateProfile = ({ navigation }) => {
 
       //password field
       const { passwordVisibility, rightIcon, handlePasswordVisibility } =
@@ -125,15 +126,14 @@ GetProfileData()
 })
 }
 
-///////////////textfields//////////////////
-const [Username, setusername] = useState('');
-const [Password, setPassword] = useState('');
-const [Email,  setEmail] = useState('');
-const [TotalFee, settotalfee] = useState('');
-const [OpeningTime, setopeningtime] = useState('');
-const [ClosingTime, setclosingtime] = useState('');
-const [Location, setlocation] = useState('');
-const[desc,setDesc]=useState('')
+    /////////TextInput References///////////
+    const ref_input2 = useRef();
+    const ref_input3 = useRef();
+
+ //textfields
+ const [Username, setUsername] = useState('');
+ const [Password, setPassword] = useState('');
+const [Email, setEmail] = useState('');
 
 
 
@@ -163,22 +163,79 @@ const[desc,setDesc]=useState('')
   })
   }
     useEffect(() => {
-      GetProfileData()
+      //GetProfileData()
   },[]);
+    ////////////////datetime picker states////////////////
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [showyearwise, setshowyearwise] = useState(false);
+    const [showdaywise, setshowdaywise] = useState('');
+  
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShow(Platform.OS === 'ios');
+      setDate(currentDate);
+      var d = new Date();
+      d = selectedDate
+      // console.log(d)
+      //console.log(selectedDate)
+      if (d != undefined) {
+        let year = d.getFullYear();
+        let month = (d.getMonth() + 1).toString().padStart(2, "0");
+        let day = d.getDate().toString().padStart(2, "0");
+        console.log(year + '-' + month + '-' + day);
+        console.log(typeof (year + '-' + month + '-' + day))
+        setshowyearwise(year + "-" + month + "-" + day)
+        setshowdaywise(day + "-" + month + "-" + year)
+        //console('date',showyearwise)
+      }
+    
+    }
+  
+  
+    const showMode = (currentMode) => {
+      setShow(true);
+      setMode(currentMode);
+      console.log('mode',mode)
+    };
+    
+    const showDatepicker = () => {
+      showMode('date');
+    };
   return (
 
     <SafeAreaView style={styles.container}>
+                {show && (
+<DateTimePicker
+testID="dateTimePicker"
+value={date}
+mode={mode}
+display="default"
+locale="es-ES"
+themeVariant="light"
+onChange={onChange}
+style={{
+shadowColor: '#fff',
+shadowRadius: 0,
+shadowOpacity: 1,
+shadowOffset: { height: 0, width: 0 },
+color:'#1669F',
+textColor:'#1669F'
+}}
+/>
+)}
             <ScrollView
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
         >
       <View style={{
-       marginTop: hp(2), 
+       marginTop: hp(8), 
         justifyContent:'center',
         marginHorizontal: hp(5),
         alignItems:'center'
       }}>
-        <Text style={styles.balancetext}>Profile</Text>
+        <Text style={styles.balancetext}>Update Profile</Text>
       </View>
       <View style={{
     alignItems: 'center',justifyContent:'center',
@@ -206,108 +263,73 @@ const[desc,setDesc]=useState('')
       </TouchableOpacity>
    
       </View>
-      <View style={styles.inputview}>
-    <View style={styles.inputflex}>
+      <View style={AuthInputstyles.inputview}>
     <TextInput
-          label={'UserName'}
-          value={Username}
-          onChangeText={setusername}
-          style={styles.inputeditable}
+          label={'Name'}
+          returnKeyType = {"next"}
+          onSubmitEditing={() => { ref_input2.current.focus()}}
+          blurOnSubmit={false}
+          autoFocus = {true}
+          onChangeText={setUsername}
+          style={AuthInputstyles.inputeditable}
+          underlineColor={Colors.appgreycolor}
+          activeUnderlineColor={Colors.appgreycolor}
+          placeholderTextColor={Colors.greytext}
+          placeholder={'Enter your Name'}
+        />
+   <TouchableOpacity  onPress={showDatepicker}>
+    <TextInput
+          label={'Date of birth'}
+          onChangeText={onChange}
+          value={showdaywise}
+          editable={false}
+          style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
           placeholderTextColor={'black'}
+          right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons} 
+          onPress={showDatepicker}
+ />}
         />
-   </View>
-   <View style={styles.inputflex}>
+   </TouchableOpacity>
     <TextInput
+      ref={ref_input2}
           label={'Email'}
-          value={Email}
           onChangeText={setEmail}
-          style={styles.inputeditable}
+          returnKeyType = {"next"}
+          onSubmitEditing={() => { ref_input3.current.focus()}}
+          blurOnSubmit={false}
+          style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
           keyboardType='email-address'
-          editable={false}
+        autoCapitalize='none'
           placeholderTextColor={'black'}
         />
-   </View>
-
-   <View style={styles.inputflex}>
-    <TextInput
-          label={'Total Fee'}
-          value={TotalFee}
-          onChangeText={settotalfee}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
-        />
-   </View>
-
-   <View style={styles.inputflex}>
-    <TextInput
-          label={'Opening Time'}
-          value={OpeningTime}
-          onChangeText={setopeningtime}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
-        />
-   </View>
-   <View style={styles.inputflex}>
-    <TextInput
-          label={'Closing Time'}
-          value={ClosingTime}
-          onChangeText={setclosingtime}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
-        />
-   </View>
-   <View style={styles.inputflex}>
-    <TextInput
-          label={'Location'}
-          value={Location}
-          onChangeText={setlocation}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
-        />
-   </View>
-   <TouchableOpacity
+           <TouchableOpacity
    style={styles.inputflex}
    onPress={()=> navigation.navigate('UpdatePassword')}>
-   <View style={styles.inputflex}>
     <TextInput
-          label={'Change Password'}
-          editable={false}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
-        />
-   </View>
+    label={'Change Password'}
+    editable={false}
+     onChangeText={setPassword}
+     style={AuthInputstyles.inputeditable}
+     underlineColor={Colors.appgreycolor}
+     activeUnderlineColor={Colors.appgreycolor}
+     secureTextEntry={passwordVisibility}
+     enablesReturnKeyAutomatically
+     right={<TextInput.Icon name={'forward'} color={Colors.greyicons} 
+     onPress={()=>navigation.navigate('UpdatePassword')}   />}
+     placeholderTextColor={'black'}
+   />
    </TouchableOpacity>
-   {/* <View style={styles.inputflex}>
-    <TextInput
-          label={'Bio'}
-          onChangeText={setDesc}
-          multiline={true}
-          style={styles.inputeditable}
-          underlineColor={Colors.appgreycolor}
-          activeUnderlineColor={Colors.appgreycolor}
-         secureTextEntry
-          placeholderTextColor={'black'}
-        />
-   </View> */}
+
       </View>
+
   <View style={styles.buttonview}>
             <CustomButtonhere
               title={'Update'}
-              widthset={'70%'}
+              widthset={'60%'}
               loading={loading}
               disabled={disable}
               onPress={() => pic()}
@@ -325,4 +347,4 @@ const[desc,setDesc]=useState('')
   )
 };
 
-export default Profile;
+export default UpdateProfile;

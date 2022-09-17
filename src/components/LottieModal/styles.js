@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
       },
       modalView: {
         width: wp('75%'),
-        paddingTop:wp('10%'),
+        //paddingTop:wp('10%'),
         backgroundColor: "white",
         borderRadius: 20,
         alignItems: "center",
@@ -80,9 +80,11 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat Bold",
       },
       animatedIcon:{
-        width: 210,
-        position: 'absolute',
-        top: -36,
+        width: wp(50),
+        // position: 'absolute',
+        // top: -36,
+        marginBottom:hp(0),
+        
     }
   });
   export default styles;

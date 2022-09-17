@@ -9,6 +9,7 @@ from 'react-native-responsive-screen';
 
 const CamerBottomSheet = (props) => {
     return(
+      
   <RBSheet
         ref={props.refRBSheet}
         closeOnDragDown={true}

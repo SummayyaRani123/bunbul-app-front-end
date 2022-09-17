@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {
   SafeAreaView, FlatList, StatusBar,TouchableWithoutFeedback,
-  Image, View, Text, TouchableOpacity,
+  Image, View, Text, TouchableOpacity,ScrollView
 } from 'react-native';
 
 import { TouchableRipple } from 'react-native-paper';
@@ -22,10 +22,22 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 ///////////////////arrays data///////////
 import { HorizontalPoster, VerticalPoster } from '../../../model/mapData';
 
+import BrickList from 'react-native-masonry-brick-list';
+
 /////////////////////app styles////////////
+
 import styles from './styles';
 import Colors from '../../../utills/Colors';
 
+const data=[
+  {id: '1', name: "Red", color: "#f44336", span: 1},
+  {id: '2', name: "Pink", color: "#E91E63", span: 2},
+  {id: '3', name: "Purple", color: "#9C27B0", span: 2},
+  {id: '4', name: "Deep Purple", color: "#673AB7", span: 1},
+  {id: '5', name: "Indigo", color: "#3F51B5", span: 1},
+  {id: '6', name: "Blue", color: "#2196F3", span: 1},
+ 
+]
 
 const Home = ({ navigation }) => {
 
@@ -57,7 +69,7 @@ const Home = ({ navigation }) => {
   }
 
   useEffect(() => {
-    GetDoctorConfirmRequest()
+    //GetDoctorConfirmRequest()
     setdatetime()
   }, []);
 
@@ -78,7 +90,9 @@ if (curHr < 12) {
   setTimeSpam('Good Evening')
 }
   }
-  const horizontalrenderItem = ({ item }) => (
+  const horizontalrenderItem = ({ item,index }) => {
+    console.log("item here:",index);
+    {index === 6 ?
     <HorizontalPosterCard
     logoimage={item.logo}
     bgimage={item.image}
@@ -89,7 +103,19 @@ if (curHr < 12) {
     navigation.navigate('SliderScreen',{navplace:'Home',
 navtype:item.type})}
   />
-  )
+  :
+  <VerticalPosterCard
+  logoimage={item.logo}
+  bgimage={item.image}
+  title={item.title}
+  description={item.description}
+  color={item.color}
+  onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
+  />
+    }
+  }
+
+
   const verticalrenderItem = ({ item }) => (
     <VerticalPosterCard
     logoimage={item.logo}
@@ -101,6 +127,29 @@ navtype:item.type})}
     />
   )
   
+  //RenderAnyItem
+const renderView=(item)=>{
+  return(
+        <View key={item.id} style={{
+            margin: 2,
+            padding:60,
+            borderRadius: 2,
+            backgroundColor: item.color,
+            flex:1,
+            alignItems:'center',
+            justifyContent:'center',
+        }} >
+            <Text style={{color:'white'}}>{item.title}</Text>
+            <View style={{flex:0.5}}>
+            <Text style={{color:'white'}}>{item.title}</Text>
+            <Text style={{color:'white'}}>{item.title}</Text>
+
+            </View>
+        </View>
+  
+  )
+};
+
   return (
 
     <SafeAreaView style={styles.container}>
@@ -113,6 +162,16 @@ navtype:item.type})}
           <Text style={styles.dateformattext}>{formatdate}</Text>
         </View>
       </View>
+      {/* <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+      <BrickList
+            data = {HorizontalPoster}
+            renderItem={(prop)=>renderView(prop)}
+            columns = {2}
+            />
+            </ScrollView> */}
       <View style={{
         height:hp(30)
         //backgroundColor:"yellow"
@@ -121,7 +180,30 @@ navtype:item.type})}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           data={HorizontalPoster}
-          renderItem={horizontalrenderItem}
+          renderItem={({ item,index }) => {
+            // console.log("item here:",index);
+            // index === 0 ?
+            <HorizontalPosterCard
+            logoimage={item.logo}
+            bgimage={item.image}
+            title={item.title}
+            description={item.description}
+            color={item.color}
+            onpressnav={() =>
+            navigation.navigate('SliderScreen',{navplace:'Home',
+        navtype:item.type})}
+          />
+         
+          // <VerticalPosterCard
+          // logoimage={item.logo}
+          // bgimage={item.image}
+          // title={item.title}
+          // description={item.description}
+          // color={item.color}
+          // onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
+          // />
+            }
+          }
           keyExtractor={(item, index) => index.toString()}
         //scrollEnabled={false}
         />

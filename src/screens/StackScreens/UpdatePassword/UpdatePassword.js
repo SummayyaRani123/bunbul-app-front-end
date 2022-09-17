@@ -5,22 +5,22 @@ import {
 } from 'react-native';
 
 /////////////app components//////////////////
-import CustomModal from '../../components/Modal/CustomModal';
-import CustomButtonhere from '../../components/Button/CustomButton';
-import { TogglePasswordVisibility } from '../../utills/TogglePasswordVisibility';
+import CustomModal from '../../../components/Modal/CustomModal';
+import CustomButtonhere from '../../../components/Button/CustomButton';
+import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
 
 ////////////////app pakages//////////////
 import { TextInput,Snackbar } from 'react-native-paper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 //////////////app styles////////////////////
-import Authstyles from '../../utills/AuthSameStyles/Authstyles';
+import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
 import styles from './styles';
-import Colors from '../../utills/Colors';
+import Colors from '../../../utills/Colors';
 
 //////////////////////////app api/////////////////////////
 import axios from 'axios';
-import { BASE_URL } from '../../utills/ApiRootUrl';
+import { BASE_URL } from '../../../utills/ApiRootUrl';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const UpdatePassword = ({ navigation,route }) => {

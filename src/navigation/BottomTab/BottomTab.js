@@ -1,17 +1,24 @@
 import React from 'react';
-import { Text} from 'react-native';
+import { Text,StyleSheet,View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+
+//////////////////app styles///////////////////
 import Colors from '../../utills/Colors';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 const Tab = createBottomTabNavigator();
 
 //screeens 
 import Home from '../../screens/BottomTabScreens/MainScreen/Home';
 import Notification from '../../screens/BottomTabScreens/Notification/Notification';
+import Profile from '../../screens/BottomTabScreens/Profile/Profile';
+
+import { appImages } from '../../constant/images';
 
 //import Account from '../../screens/BottomTabScreens/Account/Account';
 
@@ -23,8 +30,9 @@ function BottomTab() {
     activeColor={Colors.Appthemecolor}
     screenOptions={
       {
-      headerShown:false,
-       tabBarActiveTintColor:Colors.Appthemecolor,
+        tabBarShowLabel: false,
+        headerShown: false,
+       tabBarActiveTintColor:'white',
          tabBarInactiveTintColor:'grey',
            tabBarStyle:  {height: 70 },
        
@@ -42,28 +50,52 @@ function BottomTab() {
       <Tab.Screen name="Home" component={Home} 
       options={{
         headerShown: false,
-        tabBarIcon: ({ color }) => (
-         <Icon name="home" color={color} size={26} />
+        tabBarIcon: ({ color, focused }) => (
+          <View style={[style.tab, focused ? style.selectedTab : null]}>
+           <Entypo name="home" color={color} size={32} />
+          </View>
         ),
       }}/>
      <Tab.Screen name="Notification" component={Notification} 
        options={{
         headerShown: false,
         title:'Notification',
-        tabBarIcon: ({ color }) => (
-          <Icon name="notifications" color={color} size={26} />
+        tabBarIcon: ({ color,focused }) => (
+          <View style={[style.tab, focused ? style.selectedTab : null]}>
+          <Entypo name="shop" color={color} size={32} />
+          </View>
          ),
         }}/>
     
-            {/* <Tab.Screen name="Account" component={Account} 
+            <Tab.Screen name="Profile" component={Profile} 
        options={{
         headerShown: false,
         title:'Profile',
-        tabBarIcon: ({ color }) => (
-          <Ionicons name="person" color={color} size={26} />
+        tabBarIcon: ({ color ,focused}) => (
+          <View style={[style.tab, focused ? style.selectedTab : null]}>
+          <Ionicons name="person" color={color} size={32} />
+          </View>
          ),
-        }}/> */}
+        }}/>
     </Tab.Navigator>
   );
 }
+const style = StyleSheet.create({
+
+  tab: {
+    width: wp(15),
+    height: hp(7),
+    borderRadius: wp(10),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedTab: {
+    backgroundColor: Colors.Appthemecolor
+  },
+  icon: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  },
+});
 export default BottomTab;
