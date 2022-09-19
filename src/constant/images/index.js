@@ -3,6 +3,7 @@
 const IMAGES_DIR = '../../assets/images/';
 
 const appImages = {
+  headerbackicon: require(IMAGES_DIR + 'headerbackicon.png'),
   logo: require(IMAGES_DIR + 'logo.png'),
   user: require(IMAGES_DIR + 'user.png'),
   splash: require(IMAGES_DIR + 'Splash.png'),

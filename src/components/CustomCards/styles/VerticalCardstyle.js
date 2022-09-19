@@ -15,7 +15,7 @@ from 'react-native-responsive-screen';
      cardContainer: {
       width: wp(44),
       height: hp(40),
-      margin:hp(1),
+      justifyContent:'center',
           borderBottomLeftRadius:wp(6),
       borderBottomRightRadius:wp(6),
       backgroundColor:'grey',

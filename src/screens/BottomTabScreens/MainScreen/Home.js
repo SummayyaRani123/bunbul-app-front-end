@@ -22,12 +22,16 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 ///////////////////arrays data///////////
 import { HorizontalPoster, VerticalPoster } from '../../../model/mapData';
 
-import BrickList from 'react-native-masonry-brick-list';
 
 /////////////////////app styles////////////
 
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 const data=[
   {id: '1', name: "Red", color: "#f44336", span: 1},
@@ -92,7 +96,6 @@ if (curHr < 12) {
   }
   const horizontalrenderItem = ({ item,index }) => {
     console.log("item here:",index);
-    {index === 6 ?
     <HorizontalPosterCard
     logoimage={item.logo}
     bgimage={item.image}
@@ -103,16 +106,7 @@ if (curHr < 12) {
     navigation.navigate('SliderScreen',{navplace:'Home',
 navtype:item.type})}
   />
-  :
-  <VerticalPosterCard
-  logoimage={item.logo}
-  bgimage={item.image}
-  title={item.title}
-  description={item.description}
-  color={item.color}
-  onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
-  />
-    }
+
   }
 
 
@@ -151,78 +145,175 @@ const renderView=(item)=>{
 };
 
   return (
+    <View
+    style={{
+      flex: 1,
+    //paddingHorizontal:wp(3)
+    }}>
+            <View style={{ }}>
+       <Text style={styles.timespamtext}>{timespam}</Text>
+      <Text style={styles.dateformattext}>{formatdate}</Text>
+     </View>
+  
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        flexDirection: 'row',
+        // alignSelf: 'center',
+        flexWrap: 'wrap',
+        width: responsiveWidth(100),
+        alignSelf: 'center',
+        justifyContent: 'space-between',
+     
+      }}>
+      {HorizontalPoster.map((item, index) => {
+        return (
+          <View
+            style={{
+              width:
+                index == 0
+                  ? responsiveWidth(100)
+                  : index == 1
+                  ? responsiveWidth(100)
+                  : index % 6 == 0
+                  ? responsiveWidth(94)
+                  : (index - 1) % 6 == 0
+                  ? responsiveWidth(94)
+                  : responsiveWidth(50),
+              height:  
+              index == 0
+              ? responsiveHeight(36)
+              : index == 1
+              ? responsiveHeight(36)
+              : index % 6 == 0
+              ?responsiveHeight(36)
+              : (index - 1) % 6 == 0
+              ? responsiveHeight(36)
+              : responsiveHeight(41),
+              
+       
+              alignItems: 'center',
+              justifyContent: 'center',
+              //backgroundColor: 'green',
+              marginTop: responsiveHeight(2),
+              // marginRight: index % 5 !== 0 ? responsiveWidth(5) : null,
+               //alignSelf: 'center',
+            }}>
+{
+index == 0
+?
+<HorizontalPosterCard
+logoimage={item.logo}
+bgimage={item.image}
+title={item.title}
+description={item.description}
+index={index}
+color={item.color}
+onpressnav={() =>
+navigation.navigate('SliderScreen',{navplace:'Home',
+navtype:item.type})}
+/>
+ : index == 1
+ ?
+ <HorizontalPosterCard
+logoimage={item.logo}
+bgimage={item.image}
+title={item.title}
+description={item.description}
+index={index}
+color={item.color}
+onpressnav={() =>
+navigation.navigate('SliderScreen',{navplace:'Home',
+navtype:item.type})}
+/>
+:  
+  <VerticalPosterCard
+logoimage={item.logo}
+bgimage={item.image}
+title={item.title}
+description={item.description}
+color={item.color}
+onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
+/>
+}
 
-    <SafeAreaView style={styles.container}>
-      <View style={{
- marginTop: hp(3), 
-        marginHorizontal: wp(5),
-      }}>
-        <View style={{ }}>
-          <Text style={styles.timespamtext}>{timespam}</Text>
-          <Text style={styles.dateformattext}>{formatdate}</Text>
-        </View>
-      </View>
-      {/* <ScrollView
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
-      <BrickList
-            data = {HorizontalPoster}
-            renderItem={(prop)=>renderView(prop)}
-            columns = {2}
-            />
-            </ScrollView> */}
-      <View style={{
-        height:hp(30)
-        //backgroundColor:"yellow"
-      }}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          data={HorizontalPoster}
-          renderItem={({ item,index }) => {
-            // console.log("item here:",index);
-            // index === 0 ?
-            <HorizontalPosterCard
-            logoimage={item.logo}
-            bgimage={item.image}
-            title={item.title}
-            description={item.description}
-            color={item.color}
-            onpressnav={() =>
-            navigation.navigate('SliderScreen',{navplace:'Home',
-        navtype:item.type})}
-          />
+
+          </View>
+        );
+      })}
+    </ScrollView>
+  </View>
+//     <SafeAreaView style={styles.container}>
+//       <View style={{
+//  marginTop: hp(3), 
+//         marginHorizontal: wp(5),
+//       }}>
+//         <View style={{ }}>
+//           <Text style={styles.timespamtext}>{timespam}</Text>
+//           <Text style={styles.dateformattext}>{formatdate}</Text>
+//         </View>
+//       </View>
+//       {/* <ScrollView
+//         showsVerticalScrollIndicator={false}
+//         showsHorizontalScrollIndicator={false}
+//       >
+//       <BrickList
+//             data = {HorizontalPoster}
+//             renderItem={(prop)=>renderView(prop)}
+//             columns = {2}
+//             />
+//             </ScrollView> */}
+//       <View style={{
+//         height:hp(30)
+//         //backgroundColor:"yellow"
+//       }}>
+//         <FlatList
+//           showsVerticalScrollIndicator={false}
+//           showsHorizontalScrollIndicator={false}
+//           data={HorizontalPoster}
+//           renderItem={({ item,index }) => {
+//             // console.log("item here:",index);
+//             // index === 0 ?
+//             <HorizontalPosterCard
+//             logoimage={item.logo}
+//             bgimage={item.image}
+//             title={item.title}
+//             description={item.description}
+//             color={item.color}
+//             onpressnav={() =>
+//             navigation.navigate('SliderScreen',{navplace:'Home',
+//         navtype:item.type})}
+//           />
          
-          // <VerticalPosterCard
-          // logoimage={item.logo}
-          // bgimage={item.image}
-          // title={item.title}
-          // description={item.description}
-          // color={item.color}
-          // onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
-          // />
-            }
-          }
-          keyExtractor={(item, index) => index.toString()}
-        //scrollEnabled={false}
-        />
-      </View>
-      <View style={{
-   alignItems:'center'
-      }}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          data={VerticalPoster}
-          renderItem={verticalrenderItem}
-          keyExtractor={(item, index) => index.toString()}
-        //scrollEnabled={false}
-        //horizontal={true}
-        numColumns={2}
-        />
-      </View>
-    </SafeAreaView>
+//           // <VerticalPosterCard
+//           // logoimage={item.logo}
+//           // bgimage={item.image}
+//           // title={item.title}
+//           // description={item.description}
+//           // color={item.color}
+//           // onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
+//           // />
+//             }
+//           }
+//           keyExtractor={(item, index) => index.toString()}
+//         //scrollEnabled={false}
+//         />
+//       </View>
+//       <View style={{
+//    alignItems:'center'
+//       }}>
+//         <FlatList
+//           showsVerticalScrollIndicator={false}
+//           showsHorizontalScrollIndicator={false}
+//           data={VerticalPoster}
+//           renderItem={verticalrenderItem}
+//           keyExtractor={(item, index) => index.toString()}
+//         //scrollEnabled={false}
+//         //horizontal={true}
+//         numColumns={2}
+//         />
+//       </View>
+//     </SafeAreaView>
 
   )
 };

@@ -15,12 +15,10 @@ const Tab = createBottomTabNavigator();
 
 //screeens 
 import Home from '../../screens/BottomTabScreens/MainScreen/Home';
-import Notification from '../../screens/BottomTabScreens/Notification/Notification';
+import MarketPlace from '../../screens/BottomTabScreens/MarketPlace/MarketPlace';
 import Profile from '../../screens/BottomTabScreens/Profile/Profile';
 
 import { appImages } from '../../constant/images';
-
-//import Account from '../../screens/BottomTabScreens/Account/Account';
 
 
 function BottomTab() {
@@ -56,7 +54,7 @@ function BottomTab() {
           </View>
         ),
       }}/>
-     <Tab.Screen name="Notification" component={Notification} 
+     <Tab.Screen name="MarketPlace" component={MarketPlace} 
        options={{
         headerShown: false,
         title:'Notification',

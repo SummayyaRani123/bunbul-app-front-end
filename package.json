@@ -10,7 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@haskkor/react-native-pincode": "^1.22.6",
     "@react-native-async-storage/async-storage": "^1.17.7",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/datetimepicker": "^6.3.1",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
@@ -24,6 +26,7 @@
     "react-native-gesture-handler": "^2.4.2",
     "react-native-image-crop-picker": "^0.38.0",
     "react-native-image-slider-box": "^2.0.6",
+    "react-native-keychain": "^5.0.1",
     "react-native-masonry-brick-list": "^1.0.3",
     "react-native-paper": "^4.12.1",
     "react-native-raw-bottom-sheet": "^2.2.0",

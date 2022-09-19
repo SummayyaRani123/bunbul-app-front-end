@@ -9,16 +9,10 @@ from 'react-native-responsive-screen';
 const HorizontalCardstyles = StyleSheet.create({
 
 /////////////////////horizonta card design////////////////////
-
-  container: {
-    //width:wp(100),
-    //alignItems: 'center',
-    marginTop: 25,
-    
-  },
   cardContainer: {
     width: wp(94),
-    height: hp(20),
+    height: hp(33),
+     justifyContent:'center',
     borderBottomLeftRadius:wp(6),
     borderBottomRightRadius:wp(6),
     borderRadius:wp(10),
@@ -33,7 +27,7 @@ const HorizontalCardstyles = StyleSheet.create({
  
   },
   imageStyle: {
-    height: hp(25),
+    height: hp(27),
     width: wp(94),
     borderTopLeftRadius: wp(6),
     borderTopRightRadius:wp(6),

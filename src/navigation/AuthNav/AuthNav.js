@@ -12,7 +12,6 @@ import NewPassword from '../../screens/AuthScreens/NewPassword/NewPassword';
 import Verification from '../../screens/AuthScreens/Email Verification/Verification'
 import Onboarding from '../../screens/AuthScreens/OnboardingSwipper/Onboarding';
 
-import StackNav from '../StackNav/StackNav';
 
 const Stack = createNativeStackNavigator();
 function AuthNav() {
@@ -44,10 +43,6 @@ function AuthNav() {
         headerShown: false,
         }} />
  <Stack.Screen name="Verification" component={Verification}
-        options={{
-        headerShown: false,
-        }} />
-  <Stack.Screen name="StackNav" component={StackNav}
         options={{
         headerShown: false,
         }} />
