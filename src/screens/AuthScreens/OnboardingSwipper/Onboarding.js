@@ -128,7 +128,7 @@ onIndexChanged={(index) => {
             
             <View style={styles.buttonview}>
                 <CustomButtonhere
-                    widthset={'32%'}
+                    widthset={'30%'}
                     title='Next'
                     onPress={() => swiperRef.current.scrollBy(1, true)}
                 />
@@ -156,7 +156,7 @@ source={Index2image}
                     <Text style={styles.maintext}>{Index2title}</Text>
             <Text style={styles.subtext}>{Index2paragraph}</Text>
             </View>
-            <View style={styles.buttonview1}>
+            <View style={[styles.buttonview1,{marginTop:hp(10)}]}>
                 <View style={{flex:0.5,
                 //backgroundColor:'red'
                 }}>

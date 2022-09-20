@@ -6,19 +6,15 @@ import Colors from '../../../utills/Colors';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} 
 from 'react-native-responsive-screen';
 
+import { fontFamily } from '../../../constant/fonts';
+
 const HorizontalCardstyles = StyleSheet.create({
 
 /////////////////////horizonta card design////////////////////
-
-  container: {
-    //width:wp(100),
-    //alignItems: 'center',
-    marginTop: 25,
-    
-  },
   cardContainer: {
     width: wp(94),
-    height: hp(20),
+    height: hp(33),
+     justifyContent:'center',
     borderBottomLeftRadius:wp(6),
     borderBottomRightRadius:wp(6),
     borderRadius:wp(10),
@@ -28,12 +24,12 @@ const HorizontalCardstyles = StyleSheet.create({
       height: 5,
     },
     shadowOpacity: 0.75,
-    //shadowRadius: 5,
+    shadowRadius: 5,
     elevation: 5,
  
   },
   imageStyle: {
-    height: hp(25),
+    height: hp(27),
     width: wp(94),
     borderTopLeftRadius: wp(6),
     borderTopRightRadius:wp(6),
@@ -42,15 +38,15 @@ const HorizontalCardstyles = StyleSheet.create({
   },
   titleStyle: {
     fontSize:hp(1.8),
-    fontWeight: '800',
     width:wp(50),
-    color:'black'
+    color:'white',
+    fontFamily:fontFamily.Poppins_Medium
   },
   categoryStyle: {
-    fontSize:hp(1.8),
-    fontWeight: '200',
+    fontSize:hp(1.3),
     width:wp(50),
-    color:'black'
+    color:'black',
+    fontFamily:fontFamily.Poppins_Medium
   },
   infoStyle: {
     width:wp(30),

@@ -104,6 +104,7 @@ const ImageSlider = (props) => {
           containerCustomStyle={{
               marginTop: hp(0),
               width:wp(100),
+              height:hp(67),
             //   alignSelf: 'center',
               borderRadius:wp(0),
               shadowColor: '#000',

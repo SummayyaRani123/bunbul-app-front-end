@@ -136,7 +136,7 @@ justifyContent:'center',
           name='chevron-forward'
           color={'#9F9F9F'}
           size={25}
-          onPress={() => refRBSheet.current.open()}
+          onPress={() => navigation.navigate('Privacy')}
        
         />
           </View>

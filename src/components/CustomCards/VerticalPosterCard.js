@@ -19,9 +19,8 @@ import VerticalCardstyles from './styles/VerticalCardstyle';
 const VerticalPosterCard = (props) => {
 
   return (
-    <View style={VerticalCardstyles.container}>
                  <TouchableRipple
-            style={[VerticalCardstyles.container,{borderRadius:wp(5)}]}
+            style={[VerticalCardstyles.cardContainer,{borderRadius:wp(5)}]}
             rippleColor="rgba(0, 0, 0, .01)"
             onPress={props.onpressnav}>
       <View style={[VerticalCardstyles.cardContainer,{backgroundColor:props.color}]}>
@@ -51,7 +50,7 @@ const VerticalPosterCard = (props) => {
         </View>
       </View>
    </TouchableRipple>
-    </View>
+
   );
 };
 

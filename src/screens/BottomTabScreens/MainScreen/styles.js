@@ -8,6 +8,8 @@ import Colors from '../../../utills/Colors';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp }
   from 'react-native-responsive-screen';
 
+///////////////fontfamily///////////////
+import { fontFamily } from '../../../constant/fonts';
 
 
 const styles = StyleSheet.create({
@@ -20,14 +22,14 @@ const styles = StyleSheet.create({
   timespamtext:
   {
     color: Colors.Appthemecolor,
-    fontWeight: '600',
-    fontSize: hp(2.5),
+    fontFamily:fontFamily.Poppins_Medium,
+    fontSize: hp(2.1),
   },
   dateformattext:
   {
     color: Colors.greytext,
-    fontWeight: 'bold',
-    fontSize: hp(2),
+    fontFamily:fontFamily.Poppins_Medium,
+    fontSize: hp(1.7),
   },
 
 

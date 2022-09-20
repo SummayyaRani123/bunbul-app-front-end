@@ -73,7 +73,7 @@ marginTop:hp(3)
             flexDirection:'row',
        //justifyContent:"space-between",
             alignItems:'flex-end',
-            marginTop:hp(10)
+            marginTop:hp(12)
                // alignSelf:'flex-end',
            // backgroundColor:'yellow'
             },
