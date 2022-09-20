@@ -168,13 +168,16 @@ textColor:'#1669F'
 />
 )}
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-        <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
+          <TouchableOpacity onPress={()=> navigation.goBack()}>
+          <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
                  source={appImages.backicon}
                     style={{height:hp(2.5),width:wp(6)}}
                     resizeMode='contain'
                 />
             </View>
+             </TouchableOpacity>
+
       <View style={styles.imageview}>
               <Image
                               source={appImages.signuptop}
@@ -256,7 +259,8 @@ textColor:'#1669F'
             widthset={'80%'}
             loading={loading}
             disabled={disable}
-            onPress={() => formValidation()}
+            //onPress={() => formValidation()}
+            onPress={() => navigation.navigate('Login')}
           />
    
           </View>

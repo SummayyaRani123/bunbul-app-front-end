@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  SafeAreaView,ScrollView,
+  SafeAreaView,ScrollView,TouchableOpacity,
     Image, View, Text,ImageBackground
 } from 'react-native';
 /////////////////app images////////////
@@ -113,6 +113,7 @@ const formValidation = async () => {
       >
 
 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+<TouchableOpacity onPress={()=> navigation.goBack()}>
         <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
                  source={appImages.backicon}
@@ -120,6 +121,7 @@ const formValidation = async () => {
                     resizeMode='contain'
                 />
             </View>
+            </TouchableOpacity>
       <View style={styles.imageview}>
               <Image
                               source={appImages.forgettop}

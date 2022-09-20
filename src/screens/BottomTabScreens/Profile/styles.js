@@ -45,12 +45,12 @@ fontFamily:fontFamily.Poppins_Medium,
   {
     color: '#313131',
     fontFamily:fontFamily.Poppins_Medium,
-    fontSize: hp(2.3),
+    fontSize: hp(1.8),
   },
   usertext:
   {
-    color: 'black',
-    fontWeight: '600',
+    color: '#707070',
+  fontFamily:fontFamily.Poppins_Medium,
     fontSize: hp('2%'),
   },
 
@@ -63,7 +63,7 @@ fontFamily:fontFamily.Poppins_Medium,
 
   inputview:
   {
- height:hp(40),
+ height:hp(45),
     width: wp('90%'),
     alignSelf: 'center',
     alignItems:'center',

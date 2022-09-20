@@ -1,11 +1,12 @@
 import React, { useEffect, useState,useRef } from 'react';
 import {
-  SafeAreaView,ScrollView,
+  SafeAreaView,ScrollView,Image,
  View, Text, TouchableOpacity
 } from 'react-native';
 
 ////////////////app components/////////////
 import CamerBottomSheet from '../../../components/CameraBottomSheet/CameraBottomSheet';
+import CustomHeader from '../../../components/CustomHeader/CustomHeader';
 import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
 import CustomButtonhere from '../../../components/Button/CustomButton';
 
@@ -26,6 +27,8 @@ import axios from 'axios';
 import { BASE_URL } from '../../../utills/ApiRootUrl';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNFetchBlob from 'rn-fetch-blob'
+
+import { appImages } from '../../../constant/images';
 
 const UpdateProfile = ({ navigation }) => {
 
@@ -229,14 +232,13 @@ textColor:'#1669F'
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
         >
-      <View style={{
-       marginTop: hp(8), 
-        justifyContent:'center',
-        marginHorizontal: hp(5),
-        alignItems:'center'
-      }}>
-        <Text style={styles.balancetext}>Update Profile</Text>
+              <View style={{marginBottom:hp(3)}}>
+      <CustomHeader
+        screentitle={'Update Profile'}
+        navigation={() => navigation.goBack()}
+      /> 
       </View>
+
       <View style={{
     alignItems: 'center',justifyContent:'center',
     marginTop:hp(3)
@@ -244,7 +246,8 @@ textColor:'#1669F'
         
         <TouchableOpacity onPress={()=> refRBSheet.current.open()}
       style={{
- alignItems: 'center',justifyContent:'center'
+ alignItems: 'flex-end',
+ justifyContent:'flex-end'
       }}
       >
         <Avatar.Image
@@ -252,14 +255,21 @@ textColor:'#1669F'
           style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7}}
           size={120}
         />
-  
+             <Image
+          source={appImages.cameraicon}
+          style={{position:'absolute',height:hp(10),width:wp(12),top:55}}
+        resizeMode={'contain'}
+        />
+  {/* <View style={{backgroundColor:'white'}}>
+
+  </View>
           <Ionicons
           name='camera'
           color={Colors.Appthemecolor}
           size={25}
           onPress={() => refRBSheet.current.open()}
           style={{position:'absolute'}}
-        />
+        /> */}
       </TouchableOpacity>
    
       </View>
@@ -318,7 +328,7 @@ textColor:'#1669F'
      activeUnderlineColor={Colors.appgreycolor}
      secureTextEntry={passwordVisibility}
      enablesReturnKeyAutomatically
-     right={<TextInput.Icon name={'forward'} color={Colors.greyicons} 
+     right={<TextInput.Icon name={'chevron-right'} color={Colors.greyicons} 
      onPress={()=>navigation.navigate('UpdatePassword')}   />}
      placeholderTextColor={'black'}
    />

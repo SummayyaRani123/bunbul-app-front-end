@@ -64,6 +64,7 @@ fontFamily:fontFamily.Poppins_Medium,
     shadowColor: '#000',
     borderRadius:wp(5),
     backgroundColor:'white',
+    paddingBottom:hp(5),
     padding:wp(5),
     shadowOffset: {
       width: 5,

@@ -33,16 +33,6 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 
-const data=[
-  {id: '1', name: "Red", color: "#f44336", span: 1},
-  {id: '2', name: "Pink", color: "#E91E63", span: 2},
-  {id: '3', name: "Purple", color: "#9C27B0", span: 2},
-  {id: '4', name: "Deep Purple", color: "#673AB7", span: 1},
-  {id: '5', name: "Indigo", color: "#3F51B5", span: 1},
-  {id: '6', name: "Blue", color: "#2196F3", span: 1},
- 
-]
-
 const Home = ({ navigation }) => {
 
   const { name, age } = useSelector(state => state.userReducer);

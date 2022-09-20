@@ -20,6 +20,7 @@ import CreatePasscode from './src/screens/StackScreens/Passcode/CreatePasscode';
 import Privacy from './src/screens/StackScreens/Privacy/Privacy';
 import Passcode from './src/screens/StackScreens/Passcode/PasscodeRoot/Passcode';
 import Notifications from './src/screens/StackScreens/Notification/Notifications';
+import UpdatePassword from './src/screens/StackScreens/UpdatePassword/UpdatePassword';
 
 
 const Stack = createNativeStackNavigator();
@@ -73,6 +74,10 @@ function App() {
               headerShown: false,
             }} />
           <Stack.Screen name="Notifications" component={Notifications}
+            options={{
+              headerShown: false,
+            }} />
+                    <Stack.Screen name="UpdatePassword" component={UpdatePassword}
             options={{
               headerShown: false,
             }} />

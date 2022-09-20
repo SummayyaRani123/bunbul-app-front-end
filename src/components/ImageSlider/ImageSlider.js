@@ -125,7 +125,9 @@ const ImageSlider = (props) => {
                       style={{
                           alignSelf: 'center',
                           position:'absolute',
-                          bottom:0
+                          bottom:-15,
+                         
+
                       }}>
                       {pagination()}
                   </View>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Image, View, Text, SafeAreaView,ScrollView,
+    Image, View, Text, SafeAreaView,ScrollView,TouchableOpacity,
 } from 'react-native';
 ///////////////app images//////////////
 import { appImages } from '../../../constant/images';
@@ -73,6 +73,7 @@ const Verification = ({ navigation,route }) => {
 
     <SafeAreaView style={styles.container}>
 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+<TouchableOpacity onPress={()=> navigation.goBack()}>
         <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
                  source={appImages.backicon}
@@ -80,6 +81,7 @@ const Verification = ({ navigation,route }) => {
                     resizeMode='contain'
                 />
             </View>
+            </TouchableOpacity>
       <View style={styles.imageview}>
               <Image
                               source={appImages.forgettop}

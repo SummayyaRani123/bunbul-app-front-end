@@ -123,6 +123,7 @@ const DisneyImages = [
 
   ];
   const HuluImages = [
+
     { image: require("./images/Hulu/hulu1.1.png") },
     { image: require("./images/Hulu/hulu1.2.png") },
     { image: require("./images/Hulu/hulu1.3.png") },
@@ -135,6 +136,7 @@ const DisneyImages = [
     { logo: require("./images/Disney/disney.jpg") },
     { logo: require("./images/Netflix/Netflix.png") },
     { logo: require("./images/HBO/hbo.jpg") },
+    { logo: require("./images/Hulu/hulu.png") },
   ];
 
 
@@ -199,6 +201,9 @@ marginTop:hp(3),margin:hp(2)
                 :
                 route.params.navtype === 'HBOmax'?    
                 logos[4].logo
+                :
+                route.params.navtype === 'Hulu'?    
+                logos[5].logo
                 :null
                 }
                   style={{height:hp(6),width:wp(12),borderRadius: route.params.navtype === 'Netflix'? wp(0):wp(3)
@@ -220,6 +225,8 @@ marginTop:hp(3),margin:hp(2)
            route.params.navtype === 'Netflix'?   'Netflix'   
            :
            route.params.navtype === 'HBOmax'?  'HBO Max'
+           :
+           route.params.navtype === 'Hulu'?  'Hulu'
            :null
                 }    
      
@@ -234,7 +241,7 @@ marginTop:hp(3),margin:hp(2)
 </View>
 <View style={styles.buttonview}>
             <CustomButtonhere
-              title={'Add to Bundle'}
+              title={route.params.navplace === 'Profile'?'Remove From Bundle':'Add to Bundle'}
               widthset={'60%'}
               loading={loading}
               disabled={disable}

@@ -26,38 +26,38 @@ const CamerBottomSheet = (props) => {
           container: {
          borderTopLeftRadius:wp(5),
          borderTopRightRadius:wp(5),
-            height: hp(33)
+            height: hp(30)
         }
         }}
       >
      <View style={{flexDirection:'row', justifyContent:"space-between",
-     marginVertical:10, marginHorizontal:15
+     marginVertical:10, marginHorizontal:wp(5),marginBottom:hp(3)
     }}>
-     <Text style={styles.maintext}>CHOOSE OPTIONS</Text>
-     <Entypo name="cross" size={20} color={"black"}  
+     <Text style={styles.maintext}>Upload Image</Text>
+     <Ionicons name="close-circle" size={25} color={"#BCBCBC"}  
      onPress={() =>  props.refRBSheet.current.close()}/>
      </View>   
-     <View style={{marginVertical:10,marginHorizontal:20}}>
-</View>
-          <View style={{justifyContent:'center',alignContent:'center',alignItems:'center'}}>
-            <TouchableOpacity onPress={props.takePhotoFromCamera}>
+
+          <View style={{justifyContent:'center',width:wp(90)}}>
+            <TouchableOpacity onPress={props.takePhotoFromCamera} style={styles.modaltextview}>
           <View style={styles.modaltextview}>
           <View style={{ justifyContent:'space-around',margin:15}}>
-          <Ionicons name="camera" size={20} color={"white"} />
+          <Ionicons name="camera" size={20} color={"#B4B4B4"} />
           </View>
           <View style={{ justifyContent:'space-between',margin:15}}>
-      <Text style={styles.Subscriptiontext}>Camera</Text>
+      <Text style={styles.Subscriptiontext}>Pick From Camera</Text>
           </View>
       </View>
       </TouchableOpacity>
+      <View style={styles.borderview}></View>
       <TouchableOpacity  onPress={props.choosePhotoFromLibrary}>
       <View style={styles.modaltextview}>
           <View style={{ justifyContent:'space-around',margin:15}}>
-          <Ionicons name="images" size={20} color={"white"} />
+          <Ionicons name="image-sharp" size={20} color={"#B4B4B4"} />
           </View>
           <View style={{ justifyContent:'space-between',margin:15}}>
     
-      <Text style={styles.Subscriptiontext}>{props.title}</Text>
+      <Text style={styles.Subscriptiontext}>Pick From Gallery</Text>
           </View>
       </View>
       </TouchableOpacity>

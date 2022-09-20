@@ -29,7 +29,7 @@ backgroundColor:'white'
   { 
       justifyContent: 'center',
       alignSelf:'center',
-      marginTop:hp(15)
+      marginTop:hp(13)
       },
 });
 export default styles;

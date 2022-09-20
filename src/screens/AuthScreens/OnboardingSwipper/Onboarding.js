@@ -219,7 +219,7 @@ source={Index2image}
                             widthset={'30%'}
                             title='Next'
                             //mode={'contained'}
-                            onPress={() => navigation.navigate('Signup')}
+                            onPress={() => navigation.navigate('Login')}
                         />
                         </View>
                     </View>

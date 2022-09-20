@@ -108,7 +108,7 @@ justifyContent:'center',
           name='chevron-forward'
           color={'#9F9F9F'}
           size={25}
-          onPress={() => refRBSheet.current.open()}
+          //onPress={() => {}}
        
         />
           </View>
@@ -122,7 +122,7 @@ justifyContent:'center',
           name='chevron-forward'
           color={'#9F9F9F'}
           size={25}
-          onPress={() => refRBSheet.current.open()}
+         // onPress={() => refRBSheet.current.open()}
        
         />
           </View>
@@ -150,15 +150,18 @@ justifyContent:'center',
           name='chevron-forward'
           color={'#9F9F9F'}
           size={25}
-          onPress={() => refRBSheet.current.open()}
+          //onPress={() => refRBSheet.current.open()}
        
         />
           </View>
    
       </View>
+      <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
       <View style={{alignSelf:'center',marginTop:hp(2)}}>
       <Text style={styles.lasttext}>Logout</Text>
       </View>
+      </TouchableOpacity>
+
    
    </ScrollView>
     </SafeAreaView>

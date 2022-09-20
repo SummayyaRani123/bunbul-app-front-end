@@ -6,6 +6,7 @@ import {
 
 /////////////app components//////////////////
 import CustomModal from '../../../components/Modal/CustomModal';
+import CustomHeader from '../../../components/CustomHeader/CustomHeader';
 import CustomButtonhere from '../../../components/Button/CustomButton';
 import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
 
@@ -17,6 +18,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Authstyles from '../../../utills/AuthSameStyles/Authstyles';
 import styles from './styles';
 import Colors from '../../../utills/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp }
+  from 'react-native-responsive-screen';
 
 //////////////////////////app api/////////////////////////
 import axios from 'axios';
@@ -110,20 +113,16 @@ const UpdatePassword = ({ navigation,route }) => {
 
     < SafeAreaView
       style={styles.container}>
-        <View style={Authstyles.imageview}>
-                <Image
-                 source={require('../../assets/Logo/logo.png')}
-                    style={Authstyles.image}
-                    resizeMode='stretch'
-                />
-            </View>
-<View style={Authstyles.maintextview}>
-            <Text style={Authstyles.toptext}>Change Password</Text>
-   
-          </View>
+      <View style={{marginBottom:hp(10)}}>
+      <CustomHeader
+        screentitle={'Update Password'}
+        navigation={() => navigation.goBack()}
+      /> 
+      </View>
+
 
       <View style={styles.inputview}>
-      <View style={styles.inputflex}>
+
           <TextInput
             label={'Current Password'}
             onChangeText={setCurrPassword}
@@ -136,12 +135,13 @@ const UpdatePassword = ({ navigation,route }) => {
             activeUnderlineColor={Colors.appgreycolor}
             secureTextEntry={passwordVisibility}
             enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Current Password'}
           />
-     </View>
-          <View style={styles.inputflex}>
+
+  
           <TextInput
             ref={ref_input2}
             label={'Password'}
@@ -153,12 +153,12 @@ const UpdatePassword = ({ navigation,route }) => {
             activeUnderlineColor={Colors.appgreycolor}
             secureTextEntry={passwordVisibility}
             enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'New Password'}
           />
-     </View>
-     <View style={styles.inputflex}>
+  
       <TextInput
         ref={ref_input3}
             label={'Confirm Password'}
@@ -168,17 +168,18 @@ const UpdatePassword = ({ navigation,route }) => {
             activeUnderlineColor={Colors.appgreycolor}
             secureTextEntry={passwordVisibility}
             enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.Appthemecolor} 
+            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={'black'}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Confirm New Password'}
           />
-     </View>
+
         </View> 
   <View style={styles.buttonview}>
             <CustomButtonhere
-              title={'Change Password'}
-              widthset={'70%'}
-              onPress={() => formValidation()}
+              title={'Update'}
+              widthset={'60%'}
+              //onPress={() => formValidation()}
             /></View>
                   <View>
         <CustomModal 

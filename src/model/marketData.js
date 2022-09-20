@@ -54,26 +54,31 @@ const PopularImages = [
         id:1,
         title: "Spotify",
         logo: PopularImages[0].image,
+        type:'Spotify'
       },
       {
         id:2,
         title: "Netflix",
         logo: PopularImages[1].image,
+        type:'Netflix'
       },
       {
         id:3,
         title: "Hulu",
         logo: PopularImages[2].image,
+        type:'Hulu'
       },
       {
         id:4,
         title: "HBO Max",
         logo: PopularImages[3].image,
+        type:'HBOmax'
       },
       {
         id:5,
         title: "Youtube Music",
         logo: PopularImages[4].image,
+        type:'Youtube'
       },
       {
         id:6,

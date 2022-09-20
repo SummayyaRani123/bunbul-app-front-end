@@ -5,6 +5,8 @@ Dimensions
 import Colors from '../../utills/Colors';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} 
 from 'react-native-responsive-screen';
+
+import { fontFamily } from '../../constant/fonts';
 const styles = StyleSheet.create({
     bottomtext:
     {
@@ -15,15 +17,16 @@ const styles = StyleSheet.create({
       },
       Subscriptiontext:
       {
-          fontSize:hp(2),
-          color:'white',
-          fontFamily: "Montserrat Bold",
-          fontWeight:'bold',
+          fontSize:hp(1.6),
+          color:'black',
+          fontFamily: fontFamily.Poppins_Medium,
+ 
       },
       maintext:{
           fontSize:hp(2.5),
           fontWeight:'bold',
-          color:'grey',
+          color:'#313131',
+          fontFamily:fontFamily.Poppins_Medium,
           fontFamily: "Montserrat Bold",
         },
         modaltextview:
@@ -32,13 +35,23 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignContent:"center",
     alignItems:"center",
-    borderColor:Colors.Appthemecolor,
-        borderWidth:1,
-        margin:8,
+    //borderColor:Colors.Appthemecolor,
+        //borderWidth:1,
+       // margin:8,
         width:wp(70),
-        borderRadius:wp(10),
-        backgroundColor:Colors.Appthemecolor
+        //borderRadius:wp(10),
+        //backgroundColor:Colors.Appthemecolor
   },
+  borderview:
+  {
+      borderBottomColor:'rgba(112,112,112,0.2)',
+      borderBottomWidth:2,
+      width:wp(90),
+      alignSelf:'center',
+      marginTop:hp(0),
+      marginBottom:hp(1),
+      marginLeft:wp(5)
+    },
   });
   export default styles;
   

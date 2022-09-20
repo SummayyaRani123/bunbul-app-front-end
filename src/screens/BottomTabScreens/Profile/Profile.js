@@ -25,6 +25,11 @@ import { VerticalPoster } from '../../../model/mapData';
 import ListCard from '../../../components/ListCard/ListCard';
 import { appImages } from '../../../constant/images';
 
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
+
 const data=[
   {id: '1', name: "Red", color: "#f44336", span: 1},
   {id: '2', name: "Pink", color: "#E91E63", span: 2},
@@ -118,7 +123,7 @@ const[desc,setDesc]=useState('')
    
       </View>
       <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
-      <View style={{height:hp(4.5),width:wp(50),backgroundColor:'white',
+      <View style={{height:hp(4),width:wp(40),backgroundColor:'white',
       alignSelf:'center',borderRadius:wp(10),
       alignItems:'center',paddingHorizontal:wp(3),
       marginTop:hp(2),
@@ -136,7 +141,7 @@ const[desc,setDesc]=useState('')
         <Ionicons
           name='settings-sharp'
           color={'#9F9F9F'}
-          size={25}
+          size={20}
           onPress={() =>  navigation.navigate('Settings')}
        
         />
@@ -148,13 +153,49 @@ const[desc,setDesc]=useState('')
       <Text style={styles.underuserviewtext}>Earn Free Subscriptions, Invite Friend</Text>
       </View>
       <View style={styles.inputview}>
+        <View style={{marginBottom:hp(2),marginTop:hp(2)}}>
+        <Text style={styles.savingtext}>Currently saving $60/Year</Text>
+        </View>
 
-<Text style={styles.savingtext}>Currenlty saving $60/Year</Text>
+      <ScrollView
+      contentContainerStyle={{
+        //flexGrow: 1,
+        //flexDirection: 'row',
+        // alignSelf: 'center',
+        //flexWrap: 'wrap',
+        width: responsiveWidth(80),
+        alignSelf: 'center',
+       // justifyContent: 'space-between',
+     
+      }}>
+      {Notifications.map((item, index) => {
+        return (
+          <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Profile',
+                navtype:item.type})}> 
+                    <View style={{flexDirection:'row',alignItems:'center',
+                    marginBottom:hp(3)}}>
+            <Image
+                   source={item.logo}
+                      style={{height:hp(10),
+                        width:wp(20),
+                        borderRadius:item.logo === 0 || item.logo ===27 ?wp(0):wp(5)}}
+                      resizeMode='contain'
+                  />
+                  <View style={{marginLeft:wp(3)}}>
+                  <Text style={styles.title} >title
+                {item.title}
+              </Text>
+              <Text style={styles.details} >
+                {item.details}
+              </Text>
+                  </View>
+            </View>
+            </TouchableOpacity>
 
-
-  
-      <View style={{backgroundColor:'green',height:hp(20)}}>
-      <FlatList
+        );
+      })}
+    </ScrollView>
+      {/* <FlatList
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           data={Notifications}
@@ -162,28 +203,55 @@ const[desc,setDesc]=useState('')
             <View style={{flexDirection:'row',alignItems:'center'}}>
             <Image
                    source={item.logo}
-                      style={{height:hp(10),width:wp(20),borderRadius:item.logo === 24 || item.logo ===27 ?wp(0):wp(5)}}
+                      style={{height:hp(10),
+                        width:wp(20),
+                        borderRadius:item.logo === 24 || item.logo ===27 ?wp(0):wp(5)}}
                       resizeMode='contain'
                   />
                   <View style={{marginLeft:wp(3)}}>
-                  <Text style={styles.title} >
+                  <Text style={styles.title} >title
                 {item.title}
               </Text>
               <Text style={styles.details} >
                 {item.details}
               </Text>
                   </View>
-    
-  
             </View>
             }
           }
           keyExtractor={(item, index) => index.toString()}
         scrollEnabled={false}
-        />
-      </View>
+        /> */}
+
  
       </View>
+      <FlatList
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          data={data}
+          renderItem={({ item,index }) => {
+            <View style={{flexDirection:'row',alignItems:'center'}}>
+            {/* <Image
+                   source={item.logo}
+                      style={{height:hp(10),
+                        width:wp(20),
+                        borderRadius:item.logo === 24 || item.logo ===27 ?wp(0):wp(5)}}
+                      resizeMode='contain'
+                  /> */}
+                  <View style={{marginLeft:wp(3)}}>
+                  <Text style={styles.title} >title
+                {item.name}
+              </Text>
+              <Text style={styles.details} >
+                {item.color}
+              </Text>
+                  </View>
+            </View>
+            }
+          }
+          keyExtractor={(item, index) => index.toString()}
+        //scrollEnabled={false}
+        />
       <TouchableOpacity onPress={()=> navigation.navigate('EditBundle')}>
       <View style={{alignSelf:'center',marginTop:hp(2)}}>
       <Text style={styles.lasttext}>Edit Bundle</Text>

@@ -22,5 +22,6 @@ backicon:require(IMAGES_DIR + 'back.png'),
 posterimage:require(IMAGES_DIR + 'poster.png'),
 netflix:require(IMAGES_DIR + 'Netflix.png'),
 sliderback:require(IMAGES_DIR + 'sliderback.png'),
+cameraicon:require(IMAGES_DIR + 'profilecameraicon.png'),
 };
 export {appImages};

@@ -8,6 +8,7 @@ import {
 import { appImages } from '../../../constant/images';
 
 ////////////////app components//////////////
+import LottieModal from '../../../components/LottieModal/LottieModal';
 import CustomModal from '../../../components/Modal/CustomModal';
 import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
 import CustomButtonhere from '../../../components/Button/CustomButton';
@@ -130,6 +131,7 @@ useEffect(() => {
         showsHorizontalScrollIndicator={false}
       >
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+        <TouchableOpacity onPress={()=> navigation.goBack()}>
         <View style={{height:hp(5),width:wp(5),marginLeft:wp(8),marginTop:hp(4)}}>
                 <Image
                  source={appImages.backicon}
@@ -137,6 +139,7 @@ useEffect(() => {
                     resizeMode='contain'
                 />
             </View>
+            </TouchableOpacity>
       <View style={styles.imageview}>
               <Image
                               source={appImages.signuptop}
@@ -191,10 +194,11 @@ useEffect(() => {
               widthset={'80%'}
               loading={loading}
               disabled={disable}
-              onPress={() => formValidation()}
+              //onPress={() => formValidation()}
+              onPress={() => setModalVisible(true)}
             /></View>
         <View>
-        <CustomModal 
+        <LottieModal 
                 modalVisible={modalVisible}
                 CloseModal={() => setModalVisible(false)}
                 Icon={  <AntDesign

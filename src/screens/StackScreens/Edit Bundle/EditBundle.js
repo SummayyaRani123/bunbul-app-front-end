@@ -10,6 +10,9 @@ import {
   Image
 } from 'react-native';
 
+
+import CustomHeader from '../../../components/CustomHeader/CustomHeader';
+
 import { appImages } from '../../../constant/images';
 import LottieModal from '../../../components/LottieModal/LottieModal';
 
@@ -103,7 +106,7 @@ const EditBundle = ({navigation}) => {
           <View style={{flexDirection:'row',alignItems:'center'}}>
           <Image
                  source={data.item.logo}
-                    style={{height:hp(10),width:wp(20),borderRadius:data.item.logo === 24 || data.item.logo ===27 ?wp(0):wp(5)}}
+                    style={{height:hp(10),width:wp(20),borderRadius:data.item.logo === 25 || data.item.logo ===27 ?wp(0):wp(5)}}
                     resizeMode='contain'
                 />
                 <View style={{marginLeft:wp(3)}}>
@@ -217,27 +220,14 @@ const EditBundle = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <View style={{marginBottom:hp(3)}}>
+      <CustomHeader
+        screentitle={'Edit Bundle'}
+        navigation={() => navigation.goBack()}
+      /> 
+      </View>
 
-      <View style={{flexDirection:'row',
-         justifyContent:'space-between',
-        marginHorizontal:25,marginVertical:hp(3),
-        marginTop:hp(5)
-        //backgroundColor:'red'
-        }}>
-         <Ionicons
-          name='chevron-back'
-          color={'black'}
-          size={25}
-          onPress={() => navigation.navigate('Account')}
-        />
-                                   <Text style={styles.title}>Edit Card</Text>
-                                   <View style={{
-                                     //backgroundColor:'yellow'
-                                     }}>
-                             
-                                   </View>
-                     
-                        </View>
+
 <View style={{}}>
 <SwipeListView
         data={listData}

@@ -16,6 +16,13 @@ import { Notifications } from "../../../model/Notifications";
 
 import { Popular, Video,Audio, PersonalCare,Delivery,News} from "../../../model/marketData";
 
+const DisneyImages = [
+    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") },
+    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") },
+    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png") },
+    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") },
+    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.5.png") },
+  ];
 const images = [
   'https://placeimg.com/640/640/nature',
   'https://placeimg.com/640/640/people',
@@ -144,16 +151,21 @@ const[UserImage,setUserImage]= useState()
   <View   style={{ }}>
   <SliderBox
   style={styles.itemimageView1}
-  images={images}
-  // images={[
-  //   {uri:BASE_URL+sliderdata[0]},
-  //   {uri:BASE_URL+sliderdata[1]},
-  //   {uri:BASE_URL+sliderdata[2]},
-  //   // require('../../Assets/Header.png'),
-  //   // require('../../Assets/logo.png'),
-  //   // require('../../Assets/topics.png'),
+  //images={images}
+  images={[
+   require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") ,
+ require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") ,
+require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png"),
+require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
+ require("../../StackScreens/SliderScreeen/images/Disney/disney1.5.png") 
+    // {uri:BASE_URL+sliderdata[0]},
+    // {uri:BASE_URL+sliderdata[1]},
+    // {uri:BASE_URL+sliderdata[2]},
+    // require('../../Assets/Header.png'),
+    // require('../../Assets/logo.png'),
+    // require('../../Assets/topics.png'),
  
-  // ]}
+  ]}
   sliderBoxHeight={150}
   dotStyle={{
     width: 0,
@@ -184,7 +196,9 @@ const[UserImage,setUserImage]= useState()
                 data={Popular}
                 //numColumns={4}
                 renderItem={({ item }) =>
-                  <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
+                <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Market',
+                navtype:item.type})}> 
+                              <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
                     <Image
                       source={item.logo}
@@ -198,6 +212,8 @@ const[UserImage,setUserImage]= useState()
                       {item.title}</Text> 
                   </View>
 
+                </TouchableOpacity>
+    
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
