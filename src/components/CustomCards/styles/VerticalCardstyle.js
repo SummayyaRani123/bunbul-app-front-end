@@ -9,9 +9,7 @@ from 'react-native-responsive-screen';
   
   ////////////////////vertical card styles/////////////////
  const VerticalCardstyles = StyleSheet.create({
-      container: {
-      marginTop: 25,
-    },
+
      cardContainer: {
       width: wp(44),
       height: hp(40),

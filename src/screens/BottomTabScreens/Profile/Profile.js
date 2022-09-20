@@ -91,10 +91,11 @@ const[desc,setDesc]=useState('')
   return (
 
     <SafeAreaView style={styles.container}>
-            {/* <ScrollView
+            <ScrollView
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-        > */}
+        >
+        
       <View style={{
        marginTop: hp(8), 
         justifyContent:'center',
@@ -108,18 +109,13 @@ const[desc,setDesc]=useState('')
     marginTop:hp(1)
       }}>
         
-        <TouchableOpacity onPress={()=> refRBSheet.current.open()}
-      style={{
- alignItems: 'center',justifyContent:'center'
-      }}
-      >
+
         <Avatar.Image
           source={appImages.user}
           style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7}}
           size={120}
         />
 
-      </TouchableOpacity>
    
       </View>
       <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
@@ -253,13 +249,13 @@ const[desc,setDesc]=useState('')
         //scrollEnabled={false}
         />
       <TouchableOpacity onPress={()=> navigation.navigate('EditBundle')}>
-      <View style={{alignSelf:'center',marginTop:hp(2)}}>
+      <View style={{alignSelf:'center',marginTop:hp(2),marginBottom:hp(5)}}>
       <Text style={styles.lasttext}>Edit Bundle</Text>
       </View>
       </TouchableOpacity>
 
    
-   {/* </ScrollView> */}
+   </ScrollView>
     </SafeAreaView>
   )
 };

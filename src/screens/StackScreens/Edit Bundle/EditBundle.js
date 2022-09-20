@@ -295,7 +295,7 @@ from bundle?</Text>
                 modalVisible={modalVisible}
                 CloseModal={() => setModalVisible(false)}
               text={'Password Updated'}
-          buttontext={'Go to Login'}
+          buttontext={'Done'}
  onPress={()=> {setModalVisible(false)}}
                 />
     </View>

@@ -14,6 +14,7 @@ import CustomButtonhere from '../../../components/Button/CustomButton';
 import { TextInput, Avatar} from 'react-native-paper';
 import ImagePicker from 'react-native-image-crop-picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 /////////////app styles////////////////
 import styles from './styles';

@@ -176,10 +176,10 @@ const formValidation = async () => {
       <TextInput
             label={'Email'}
             onChangeText={setEmail}
-            returnKeyType = {"next"}
-            onSubmitEditing={() => { ref_input2.current.focus()}}
-            blurOnSubmit={false}
-            autoFocus = {true}
+           // returnKeyType = {"next"}
+           // onSubmitEditing={() => { ref_input2.current.focus()}}
+            //blurOnSubmit={false}
+           // autoFocus = {true}
             style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
@@ -190,7 +190,7 @@ const formValidation = async () => {
           />
 
       <TextInput
-        ref={ref_input2}
+       // ref={ref_input2}
             label={'Password'}
             onChangeText={setPassword}
             style={AuthInputstyles.inputeditable}

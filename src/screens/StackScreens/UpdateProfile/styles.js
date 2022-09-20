@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
   buttonview:
   { 
-marginTop:hp(10),
+marginTop:hp(23),
       justifyContent: 'center',
       marginBottom:hp(5)
       //backgroundColor:'yellow'
