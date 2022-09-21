@@ -27,13 +27,29 @@ import {
     useClearByFocusCell,
   } from 'react-native-confirmation-code-field';
 
+  ///////////////timer/////////////////////
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
+
 
 const Verification = ({ navigation,route }) => {
   console.log("obj:",route.params)
+
+  /////////////timer state///////////////
+  const [disabletimer, setdisableTimer] = useState(false);
+  
+  //////////time function//////////
+  const children = ({ remainingTime }) => {
+    const minutes = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+  
+    return `${minutes}:${seconds}`
+  }
+
+
    //code Confirmation states
  const [value, setValue] = useState();
 //cell number
-  const CELL_COUNT = 4;
+  const CELL_COUNT = 6;
 
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -121,9 +137,50 @@ you email
         )}
       />
       </View>
+      <View style={{flexDirection:"row",justifyContent:'space-between',alignItems:"center",
+      //backgroundColor:'red',
+      width:wp(70),alignSelf:'center',marginTop:hp(2),
+   // paddingHorizontal:wp(6)
+    }}>
+  <View style={{justifyContent:'flex-start',alignSelf:'flex-start'}}>
+  {
+  disabletimer==true?
+<CountdownCircleTimer
+size={50}
+strokeWidth={0}
+children ={children}
+    isPlaying
+    duration={7}
+    initialRemainingTime={15}
+    colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+    colorsTime={[7, 5, 2, 0]}
+    onComplete={() => {
+      setdisableTimer(false)
+      // do your stuff here
+      //return { shouldRepeat: true, delay: 1.5 } // repeat animation in 1.5 seconds
+    }}
+  >
+
+    {({ remainingTime }) =>
+    
+    <Text style={{color:'white',fontSize:hp(2)}}>{remainingTime}</Text>}
+  </CountdownCircleTimer>
+  :
+  null
+ } 
+  </View>
+<TouchableOpacity 
+disabled={disabletimer}
+      onPress={()=> setdisableTimer(true)}                           
+       >
+      <View style={{alignItems:'flex-end'}}>
+<Text style={styles.Cellmaintext}>Resend</Text>
+</View>
+</TouchableOpacity>
+      </View>
 <View style={styles.buttonview}>
           <CustomButtonhere
-            title={'Send Code'}
+            title={'Verify'}
             widthset={'70%'}
             //onPress={() => verifyno()}
             onPress={()=>     navigation.navigate('NewPassword')}

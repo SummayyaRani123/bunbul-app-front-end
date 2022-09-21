@@ -91,10 +91,10 @@ const[desc,setDesc]=useState('')
   return (
 
     <SafeAreaView style={styles.container}>
-            <ScrollView
+            {/* <ScrollView
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-        >
+        > */}
         
       <View style={{
        marginTop: hp(8), 
@@ -106,14 +106,39 @@ const[desc,setDesc]=useState('')
       </View>
       <View style={{
     alignItems: 'center',justifyContent:'center', 
-    marginTop:hp(1)
+    marginTop:hp(1),width:wp(27.6),height:hp(13),borderRadius:60,
+    backgroundColor:'white',
+    // borderTopRightRadius:100,
+    // borderTopLeftRadius:100,
+    // borderBottomLeftRadius:90,
+    // borderBottomRightRadius:90,
+    alignSelf:"center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    
+    elevation: 5,
+  
       }}>
         
 
         <Avatar.Image
           source={appImages.user}
-          style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7}}
-          size={120}
+          style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 10,
+            height: 10,
+          },
+          shadowOpacity: 1,
+          shadowRadius: 5,
+          elevation: 7,
+        }}
+          size={hp(13)}
         />
 
    
@@ -149,11 +174,11 @@ const[desc,setDesc]=useState('')
       <Text style={styles.underuserviewtext}>Earn Free Subscriptions, Invite Friend</Text>
       </View>
       <View style={styles.inputview}>
-        <View style={{marginBottom:hp(2),marginTop:hp(2)}}>
-        <Text style={styles.savingtext}>Currently saving $60/Year</Text>
-        </View>
+
 
       <ScrollView
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         //flexGrow: 1,
         //flexDirection: 'row',
@@ -164,6 +189,9 @@ const[desc,setDesc]=useState('')
        // justifyContent: 'space-between',
      
       }}>
+                <View style={{marginBottom:hp(2),marginTop:hp(2),alignSelf:"center"}}>
+        <Text style={styles.savingtext}>Currently saving $60/Year</Text>
+        </View>
       {Notifications.map((item, index) => {
         return (
           <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Profile',
@@ -221,33 +249,7 @@ const[desc,setDesc]=useState('')
 
  
       </View>
-      <FlatList
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          data={data}
-          renderItem={({ item,index }) => {
-            <View style={{flexDirection:'row',alignItems:'center'}}>
-            {/* <Image
-                   source={item.logo}
-                      style={{height:hp(10),
-                        width:wp(20),
-                        borderRadius:item.logo === 24 || item.logo ===27 ?wp(0):wp(5)}}
-                      resizeMode='contain'
-                  /> */}
-                  <View style={{marginLeft:wp(3)}}>
-                  <Text style={styles.title} >title
-                {item.name}
-              </Text>
-              <Text style={styles.details} >
-                {item.color}
-              </Text>
-                  </View>
-            </View>
-            }
-          }
-          keyExtractor={(item, index) => index.toString()}
-        //scrollEnabled={false}
-        />
+
       <TouchableOpacity onPress={()=> navigation.navigate('EditBundle')}>
       <View style={{alignSelf:'center',marginTop:hp(2),marginBottom:hp(5)}}>
       <Text style={styles.lasttext}>Edit Bundle</Text>
@@ -255,7 +257,7 @@ const[desc,setDesc]=useState('')
       </TouchableOpacity>
 
    
-   </ScrollView>
+   {/* </ScrollView> */}
     </SafeAreaView>
   )
 };

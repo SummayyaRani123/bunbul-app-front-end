@@ -63,7 +63,7 @@ const UpdateProfile = ({ navigation }) => {
                 ImagePicker.openPicker({
                   width: 300,
                   height: 300,
-                  cropping: true,
+                  cropping: false,
                   compressImageQuality: 0.7
                 }).then(image => {
                   refRBSheet.current.close()

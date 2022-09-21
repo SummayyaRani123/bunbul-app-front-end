@@ -35,14 +35,15 @@ color:"black",
     marginBottom:hp(2),
     //borderColor:'gray',
     backgroundColor:'white',
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
-      width: 10,
-      height: 10,
+      width: 0,
+      height: 5,
     },
-    shadowOpacity: 1,
-    shadowRadius: 15,
-    elevation: 5,
+    shadowOpacity: 0.36,
+    shadowRadius: 6.68,
+    
+    elevation: 11,
     
   },
   Icon:
@@ -54,9 +55,9 @@ color:"black",
   },
   maintext:{
     fontSize:hp('3%'),
-    fontWeight:'bold',
-    color:'black',
-    fontFamily: "Montserrat Bold",
+
+    color:'#505050',
+    fontFamily:fontFamily.Poppins_Medium
   },
   sidetext:{
     fontSize:hp(1.8),
@@ -67,7 +68,8 @@ color:"black",
      marginTop:wp("2%"),
     flexDirection:'row',
     justifyContent: 'space-between' ,
-    marginLeft:wp(3)
+    marginLeft:wp(3),
+    alignItems:"center"
  },
  SeeView:
  {
@@ -124,16 +126,38 @@ itemimageView:
     marginTop:wp('1%')
 
 },
+sliderView:{
+marginTop:hp(2),
+  alignSelf:'center',
+  //borderWidth: 2,
+  borderRadius:30,
+  height:wp(57),
+  width:wp(88),
+  marginBottom:hp(1),
+  //borderColor:'gray',
+  //backgroundColor:'white',
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 7,
+  },
+  shadowOpacity: 0.41,
+  shadowRadius: 9.11,
+  
+  elevation: 14,
+  
+},
 itemimageView1:
 {
-    height:wp("48%"),
+    height:wp(55),
     width:wp('88%'),
     borderRadius:20,
-    marginVertical:wp('2%'),
-    marginHorizontal:wp('2%'),
+    //marginVertical:wp('2%'),
+    // /marginHorizontal:wp('2%'),
     alignItems:'center',
     borderColor:'grey',
     borderWidth:12
+    
     //position:'absolute'
 
 },

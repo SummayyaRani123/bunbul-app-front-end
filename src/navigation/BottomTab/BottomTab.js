@@ -50,7 +50,7 @@ function BottomTab() {
         headerShown: false,
         tabBarIcon: ({ color, focused }) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-           <Entypo name="home" color={color} size={32} />
+           <Entypo name="home" color={color} size={25} />
           </View>
         ),
       }}/>
@@ -60,7 +60,7 @@ function BottomTab() {
         title:'Notification',
         tabBarIcon: ({ color,focused }) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-          <Entypo name="shop" color={color} size={32} />
+          <Entypo name="shop" color={color} size={25} />
           </View>
          ),
         }}/>
@@ -71,7 +71,7 @@ function BottomTab() {
         title:'Profile',
         tabBarIcon: ({ color ,focused}) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-          <Ionicons name="person" color={color} size={32} />
+          <Ionicons name="person" color={color} size={25} />
           </View>
          ),
         }}/>

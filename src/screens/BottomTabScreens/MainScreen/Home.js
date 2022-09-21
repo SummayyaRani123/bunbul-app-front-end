@@ -84,68 +84,16 @@ if (curHr < 12) {
   setTimeSpam('Good Evening')
 }
   }
-  const horizontalrenderItem = ({ item,index }) => {
-    console.log("item here:",index);
-    <HorizontalPosterCard
-    logoimage={item.logo}
-    bgimage={item.image}
-    title={item.title}
-    description={item.description}
-    color={item.color}
-    onpressnav={() =>
-    navigation.navigate('SliderScreen',{navplace:'Home',
-navtype:item.type})}
-  />
-
-  }
-
-
-  const verticalrenderItem = ({ item }) => (
-    <VerticalPosterCard
-    logoimage={item.logo}
-    bgimage={item.image}
-    title={item.title}
-    description={item.description}
-    color={item.color}
-    onpressnav={() => navigation.navigate('SliderScreen',{navplace:'Home',navtype:item.type})}
-    />
-  )
-  
-  //RenderAnyItem
-const renderView=(item)=>{
-  return(
-        <View key={item.id} style={{
-            margin: 2,
-            padding:60,
-            borderRadius: 2,
-            backgroundColor: item.color,
-            flex:1,
-            alignItems:'center',
-            justifyContent:'center',
-        }} >
-            <Text style={{color:'white'}}>{item.title}</Text>
-            <View style={{flex:0.5}}>
-            <Text style={{color:'white'}}>{item.title}</Text>
-            <Text style={{color:'white'}}>{item.title}</Text>
-
-            </View>
-        </View>
-  
-  )
-};
 
   return (
     <View
     style={{
       flex: 1,
-    //paddingHorizontal:wp(3)
+  marginTop:hp(5)
     }}>
-            <View style={{marginTop:hp(5),marginLeft:wp(4),marginBottom:hp(2)}}>
-       <Text style={styles.timespamtext}>{timespam}</Text>
-      <Text style={styles.dateformattext}>{formatdate}</Text>
-     </View>
-  
     <ScrollView
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         flexGrow: 1,
         flexDirection: 'row',
@@ -156,6 +104,10 @@ const renderView=(item)=>{
         justifyContent: 'space-between',
      
       }}>
+                    <View style={{marginTop:hp(5),marginLeft:wp(4),marginBottom:hp(2)}}>
+       <Text style={styles.timespamtext}>{timespam}</Text>
+      <Text style={styles.dateformattext}>{formatdate}</Text>
+     </View>
       {HorizontalPoster.map((item, index) => {
         return (
           <View

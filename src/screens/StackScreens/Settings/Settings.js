@@ -44,21 +44,41 @@ const Settings = ({ navigation }) => {
       </View>
       <View style={{
     alignItems: 'center',justifyContent:'center', 
-    marginTop:hp(1)
+    marginTop:hp(1),width:wp(27.6),height:hp(13),borderRadius:60,
+    backgroundColor:'white',
+    // borderTopRightRadius:100,
+    // borderTopLeftRadius:100,
+    // borderBottomLeftRadius:90,
+    // borderBottomRightRadius:90,
+    alignSelf:"center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    
+    elevation: 5,
+  
       }}>
         
-        <TouchableOpacity onPress={()=> refRBSheet.current.open()}
-      style={{
- alignItems: 'center',justifyContent:'center'
-      }}
-      >
+
         <Avatar.Image
           source={appImages.user}
-          style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7}}
-          size={120}
+          style={{backgroundColor:'white',borderColor:'grey',borderWidth:0.7,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 10,
+            height: 10,
+          },
+          shadowOpacity: 1,
+          shadowRadius: 5,
+          elevation: 7,
+        }}
+          size={hp(13)}
         />
 
-      </TouchableOpacity>
    
       </View>
       
@@ -91,7 +111,7 @@ justifyContent:'center',
         <Ionicons
           name='chevron-forward'
           color={'#9F9F9F'}
-          size={25}
+          size={22}
           onPress={() => navigation.navigate('UpdateProfile')}
 
         />
@@ -107,7 +127,7 @@ justifyContent:'center',
         <Ionicons
           name='chevron-forward'
           color={'#9F9F9F'}
-          size={25}
+          size={22}
           //onPress={() => {}}
        
         />
@@ -121,7 +141,7 @@ justifyContent:'center',
         <Ionicons
           name='chevron-forward'
           color={'#9F9F9F'}
-          size={25}
+          size={22}
          // onPress={() => refRBSheet.current.open()}
        
         />
@@ -135,7 +155,7 @@ justifyContent:'center',
         <Ionicons
           name='chevron-forward'
           color={'#9F9F9F'}
-          size={25}
+          size={22}
           onPress={() => navigation.navigate('Privacy')}
        
         />
@@ -149,7 +169,7 @@ justifyContent:'center',
         <Ionicons
           name='chevron-forward'
           color={'#9F9F9F'}
-          size={25}
+          size={22}
           //onPress={() => refRBSheet.current.open()}
        
         />

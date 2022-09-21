@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   toptext:
   {
-    color: '#707070',
+    color: '#313131',
 fontFamily:fontFamily.Poppins_Medium,
     fontSize: hp(3),
   },
@@ -77,7 +77,7 @@ fontFamily:fontFamily.Poppins_Medium,
     shadowOpacity: 0.75,
     shadowRadius: 2,
     elevation: 5,
-marginTop:hp(5)
+marginTop:hp(1.6)
     //backgroundColor: "red",
   },
   inputflex:

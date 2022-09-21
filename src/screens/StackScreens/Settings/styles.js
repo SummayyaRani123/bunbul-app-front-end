@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   toptext:
   {
-    color: '#707070',
+    color: '#313131',
 fontFamily:fontFamily.Poppins_Medium,
     fontSize: hp(3),
   },
@@ -45,7 +45,7 @@ fontFamily:fontFamily.Poppins_Medium,
   {
     color: '#707070',
 fontFamily:fontFamily.Poppins_Medium,
-    fontSize: hp(1.5),
+    fontSize: hp(1.7),
   },
   borderview:
   {

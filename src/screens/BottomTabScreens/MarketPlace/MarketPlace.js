@@ -148,7 +148,7 @@ const[UserImage,setUserImage]= useState()
   <Ionicons name="search" size={23} style={styles.Icon}/>
       </TouchableOpacity> 
 
-  <View   style={{ }}>
+  <View   style={styles.sliderView}>
   <SliderBox
   style={styles.itemimageView1}
   //images={images}
