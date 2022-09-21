@@ -9,6 +9,7 @@ import { appImages } from '../../../constant/images';
 ////////////////app components//////////////
 import CustomButtonhere from '../../../components/Button/CustomButton';
 import { TogglePasswordVisibility } from '../../../utills/TogglePasswordVisibility';
+import WelcomeBottomSheet from '../../../components/WelcomeBottomSheet/WelcomeBottomSheet';
 
 /////////////////app pakages////////////////
 import { TextInput,Snackbar } from 'react-native-paper';
@@ -35,6 +36,9 @@ import axios from 'axios';
 import { BASE_URL } from '../../../utills/ApiRootUrl';
 
 const Signup = ({ navigation }) => {
+
+                //Check state and funnction
+                const refRBSheet = useRef();
 
     /////////TextInput References///////////
     const ref_input2 = useRef();
@@ -204,7 +208,7 @@ textColor:'#1669F'
           style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={Colors.greytext}
+          placeholderTextColor={Colors.placeholdertextgrey}
           placeholder={'Enter your Name'}
         />
    <TouchableOpacity  onPress={showDatepicker}>
@@ -216,10 +220,11 @@ textColor:'#1669F'
           style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
+          placeholderTextColor={Colors.placeholdertextgrey}
+          placeholder={'09/1999'}
           right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons} 
-          onPress={showDatepicker}
- />}
+          onPress={showDatepicker}/>}
+
         />
    </TouchableOpacity>
     <TextInput
@@ -234,7 +239,8 @@ textColor:'#1669F'
           activeUnderlineColor={Colors.appgreycolor}
           keyboardType='email-address'
         autoCapitalize='none'
-          placeholderTextColor={'black'}
+        placeholderTextColor={Colors.placeholdertextgrey}
+          placeholder={'Enter Your Email'}
         />
     <TextInput
          ref={ref_input3}
@@ -247,7 +253,8 @@ textColor:'#1669F'
           enablesReturnKeyAutomatically
           right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
           onPress={handlePasswordVisibility}   />}
-          placeholderTextColor={'black'}
+          placeholderTextColor={Colors.placeholdertextgrey}
+          placeholder={'Enter Password'}
         />
       </View>
 
@@ -259,8 +266,8 @@ textColor:'#1669F'
             widthset={'80%'}
             loading={loading}
             disabled={disable}
-            //onPress={() => formValidation()}
-            onPress={() => navigation.navigate('Login')}
+            onPress={() => refRBSheet.current.open()}
+            //onPress={() => navigation.navigate('Login')}
           />
    
           </View>
@@ -281,6 +288,12 @@ textColor:'#1669F'
           }}>
           {snackbarValue.value}
         </Snackbar>
+        <WelcomeBottomSheet
+              refRBSheet={refRBSheet}
+              onClose={() => refRBSheet.current.close()}
+              title={'Gallery'}
+    onpress={()=> navigation.navigate('BottomTab')}
+            />
       </ScrollView>
 </SafeAreaView>
 

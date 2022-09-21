@@ -185,7 +185,7 @@ const formValidation = async () => {
             activeUnderlineColor={Colors.appgreycolor}
             keyboardType='email-address'
             autoCapitalize='none'
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Enter your Email'}
           />
 
@@ -200,7 +200,7 @@ const formValidation = async () => {
            enablesReturnKeyAutomatically
            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
            onPress={handlePasswordVisibility}   />}
-           placeholderTextColor={Colors.greytext}
+           placeholderTextColor={Colors.placeholdertextgrey}
            placeholder={'Enter Password'}
           />
 

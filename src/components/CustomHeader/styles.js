@@ -23,12 +23,12 @@ justifyContent:'space-between',
         {
           color: '#313131',
           fontFamily:fontFamily.Poppins_Medium,
-          fontSize: hp(2.5),
+          fontSize: hp(2.7),
         },
         backicon:
         { 
-            width: wp(5),
-             height: hp(2)
+            width: wp(6),
+             height: hp(2.7)
             },
             searchicon:
             { 

@@ -46,14 +46,15 @@ color:"black",
     marginBottom:hp(2),
     //borderColor:'gray',
     backgroundColor:'white',
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
-      width: 10,
-      height: 10,
+      width: 0,
+      height: 9,
     },
-    shadowOpacity: 1,
-    shadowRadius: 15,
-    elevation: 5,
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+    
+    elevation: 19,
     
   },
   Icon:

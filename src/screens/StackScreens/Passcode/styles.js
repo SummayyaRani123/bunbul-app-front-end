@@ -5,7 +5,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp }
 
   import { fontFamily } from '../../../constant/fonts';
 
-export const CELL_SIZE = hp(3);
+export const CELL_SIZE = hp(3.2);
 export const CELL_BORDER_RADIUS = 8;
 export const DEFAULT_CELL_BG_COLOR = '#fff';
 export const NOT_EMPTY_CELL_BG_COLOR = 'grey';

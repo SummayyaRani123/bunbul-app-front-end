@@ -38,12 +38,12 @@ color:"black",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 9,
     },
-    shadowOpacity: 0.36,
-    shadowRadius: 6.68,
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
     
-    elevation: 11,
+    elevation: 19,
     
   },
   Icon:
@@ -69,13 +69,15 @@ color:"black",
     flexDirection:'row',
     justifyContent: 'space-between' ,
     marginLeft:wp(3),
-    alignItems:"center"
+    alignItems:"center",
+    marginBottom:hp(2)
  },
  SeeView:
  {
     borderRadius:25,
     justifyContent:'center',
-    margin:wp('1.8%'),
+alignItems:'center',
+    // /margin:wp('1.8%'),
     backgroundColor:'white',
     borderWidth:1,
     borderColor:'grey'
@@ -83,18 +85,18 @@ color:"black",
 Seetext:
 {
     color:'#5C5C5C',
-    fontSize:hp(1.3),
+    fontSize:hp(1.5),
     fontFamily: fontFamily.Poppins_SemiBold,
     marginLeft:wp(4.5),
     marginRight:wp(4.5),
-    marginBottom:wp(1.2),
-    marginTop:wp(1.2),
+    marginBottom:wp(1),
+    marginTop:wp(1),
     textAlign:'center'
   
 },
   mainview:{
 alignItems:'center',
-    marginBottom:wp(0),
+  
    marginTop:hp(5)
   },
 
@@ -155,8 +157,8 @@ itemimageView1:
     //marginVertical:wp('2%'),
     // /marginHorizontal:wp('2%'),
     alignItems:'center',
-    borderColor:'grey',
-    borderWidth:12
+    borderColor:'orange',
+    borderWidth:6
     
     //position:'absolute'
 

@@ -32,7 +32,7 @@ function BottomTab() {
         headerShown: false,
        tabBarActiveTintColor:'white',
          tabBarInactiveTintColor:'grey',
-           tabBarStyle:  {height: 70 },
+           tabBarStyle:  {height:hp(7)},
        
        } }
     tabBarOptions={{
@@ -81,8 +81,8 @@ function BottomTab() {
 const style = StyleSheet.create({
 
   tab: {
-    width: wp(15),
-    height: hp(7),
+    width: wp(13),
+    height: hp(6),
     borderRadius: wp(10),
     justifyContent: 'center',
     alignItems: 'center',

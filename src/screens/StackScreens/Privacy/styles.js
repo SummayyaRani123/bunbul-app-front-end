@@ -48,12 +48,12 @@ fontFamily:fontFamily.Poppins_Medium,
     marginTop:hp(2),
     width:wp(76)
         },
-    optiontext:
-    {
-      color: '#707070',
-  fontFamily:fontFamily.Poppins_Medium,
-      fontSize: hp(1.5),
-    },
+        optiontext:
+        {
+          color: '#707070',
+      fontFamily:fontFamily.Poppins_Medium,
+          fontSize: hp(1.7),
+        },
     borderview:
     {
         borderBottomColor:'rgba(112,112,112,0.2)',

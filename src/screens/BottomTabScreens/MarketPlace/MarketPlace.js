@@ -16,19 +16,6 @@ import { Notifications } from "../../../model/Notifications";
 
 import { Popular, Video,Audio, PersonalCare,Delivery,News} from "../../../model/marketData";
 
-const DisneyImages = [
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") },
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") },
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png") },
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") },
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.5.png") },
-  ];
-const images = [
-  'https://placeimg.com/640/640/nature',
-  'https://placeimg.com/640/640/people',
-  'https://placeimg.com/640/640/animals',
-  'https://placeimg.com/640/640/beer',
-];
 
 const MarketPlace= ({navigation}) => {
 //seacrh states
@@ -124,11 +111,12 @@ const[UserImage,setUserImage]= useState()
   })
 }
   return (
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    showsHorizontalScrollIndicator={false}
+  >
     <SafeAreaView style={styles.container}>
-                  <ScrollView
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
+
       <View style={styles.mainview}>
         <View>
         <Text style={styles.maintext}>Marketplace</Text>
@@ -145,7 +133,7 @@ const[UserImage,setUserImage]= useState()
   placeholderTextColor={'#707070'}
   clearButtonMode='always'
 />
-  <Ionicons name="search" size={23} style={styles.Icon}/>
+  <Ionicons name="search" size={20} style={styles.Icon}/>
       </TouchableOpacity> 
 
   <View   style={styles.sliderView}>
@@ -153,7 +141,7 @@ const[UserImage,setUserImage]= useState()
   style={styles.itemimageView1}
   //images={images}
   images={[
-   require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") ,
+  //  require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") ,
  require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") ,
 require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png"),
 require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
@@ -217,6 +205,8 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
 <View>
@@ -250,6 +240,8 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
 <View>
@@ -283,6 +275,8 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
 <View>
@@ -316,6 +310,8 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
 <View>
@@ -349,6 +345,8 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
 <View>
@@ -382,10 +380,13 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
               />
 </View>
-</ScrollView>
+
     </SafeAreaView>
+    </ScrollView>
   );
 };
 

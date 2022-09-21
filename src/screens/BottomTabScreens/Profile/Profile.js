@@ -197,7 +197,7 @@ const[desc,setDesc]=useState('')
           <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Profile',
                 navtype:item.type})}> 
                     <View style={{flexDirection:'row',alignItems:'center',
-                    marginBottom:hp(3)}}>
+                    marginBottom:hp(1)}}>
             <Image
                    source={item.logo}
                       style={{height:hp(10),

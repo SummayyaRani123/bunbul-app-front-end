@@ -107,14 +107,15 @@ const ImageSlider = (props) => {
               height:hp(67),
             //   alignSelf: 'center',
               borderRadius:wp(0),
-              shadowColor: '#000',
+              shadowColor: "#000",
               shadowOffset: {
-                width: 5,
-                height: 10,
+                width: 0,
+                height: 8,
               },
-              shadowOpacity: 0.9,
-              shadowRadius: 5,
-              elevation: 9,
+              shadowOpacity: 0.44,
+              shadowRadius: 10.32,
+              
+              elevation: 16,
           }}
           onSnapToItem={index => {
               setActiveSlide(index)

@@ -28,7 +28,7 @@ const AuthInputstyles = StyleSheet.create({
       marginLeft:'3%',
       fontSize:hp(1.8),
       fontFamily:fontFamily.Poppins_Medium,
-      color:Colors.greytext,
+      color:'#797979',
   },
 
 });

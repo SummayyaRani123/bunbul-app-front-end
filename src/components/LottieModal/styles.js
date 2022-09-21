@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(52, 52, 52, 0.8)',
       },
       modalView: {
-        width: wp('75%'),
+        width: wp(80),
         //paddingTop:wp('10%'),
         backgroundColor: "white",
         borderRadius: 20,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat Bold",
       },
       animatedIcon:{
-        width: wp(50),
+        width: wp(25),
         // position: 'absolute',
         // top: -36,
         marginBottom:hp(0),

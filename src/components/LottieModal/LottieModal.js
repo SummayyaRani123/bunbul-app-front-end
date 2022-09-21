@@ -21,7 +21,10 @@ const LottieModal = (props) => {
               marginTop:heightPercentageToDP(5),
               //backgroundColor:'red',
               alignSelf:'center',height:heightPercentageToDP(20)}}> */}
-   <Lottie source={require('./SuccesModal.json')}  autoPlay style={styles.animatedIcon}/>
+              <View style={{height:heightPercentageToDP(30),alignItems:'center',justifyContent:'center'}}>
+              <Lottie source={require('./SuccesModal.json')}  autoPlay style={styles.animatedIcon}/>
+              </View>
+
 {/* </View> */}
 {/* <TouchableOpacity onPress={()=> props.CloseModal}>
                 
@@ -35,12 +38,12 @@ const LottieModal = (props) => {
        
 
 */}
-     <View  style={styles.ApprovedView}>
+     {/* <View  style={styles.ApprovedView}>
        <TouchableOpacity 
          onPress={props.onPress}>
        <Text style={styles.Pendingtext}>{props.buttontext}</Text>
         </TouchableOpacity>
-     </View> 
+     </View>  */}
             </View>
           </View>
         </Modal>

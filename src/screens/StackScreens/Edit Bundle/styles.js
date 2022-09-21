@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     backRightBtnRight: {
         backgroundColor: 'red',
         right: 0,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
     },
 
     title: {

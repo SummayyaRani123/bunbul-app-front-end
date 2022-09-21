@@ -285,7 +285,7 @@ textColor:'#1669F'
           style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={Colors.greytext}
+          placeholderTextColor={Colors.placeholdertextgrey}
           placeholder={'Enter your Name'}
         />
    <TouchableOpacity  onPress={showDatepicker}>
@@ -297,7 +297,8 @@ textColor:'#1669F'
           style={AuthInputstyles.inputeditable}
           underlineColor={Colors.appgreycolor}
           activeUnderlineColor={Colors.appgreycolor}
-          placeholderTextColor={'black'}
+          placeholderTextColor={Colors.placeholdertextgrey}
+          placeholder={'Enter your Name'}
           right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons} 
           onPress={showDatepicker}
  />}
@@ -315,7 +316,8 @@ textColor:'#1669F'
           activeUnderlineColor={Colors.appgreycolor}
           keyboardType='email-address'
         autoCapitalize='none'
-          placeholderTextColor={'black'}
+        placeholderTextColor={Colors.placeholdertextgrey}
+        placeholder={'Enter your Email'}
         />
            <TouchableOpacity
    style={styles.inputflex}
@@ -331,7 +333,8 @@ textColor:'#1669F'
      enablesReturnKeyAutomatically
      right={<TextInput.Icon name={'chevron-right'} color={Colors.greyicons} 
      onPress={()=>navigation.navigate('UpdatePassword')}   />}
-     placeholderTextColor={'black'}
+     placeholderTextColor={Colors.placeholdertextgrey}
+     placeholder={'Enter Password'}
    />
    </TouchableOpacity>
 
@@ -343,7 +346,7 @@ textColor:'#1669F'
               widthset={'60%'}
               loading={loading}
               disabled={disable}
-              onPress={() => pic()}
+              //onPress={() => pic()}
             /></View>
                  <CamerBottomSheet
               refRBSheet={refRBSheet}

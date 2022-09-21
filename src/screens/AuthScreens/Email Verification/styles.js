@@ -6,6 +6,8 @@ import {
 import Colors from '../../../utills/Colors';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp }
   from 'react-native-responsive-screen';
+import { fontFamily } from '../../../constant/fonts';
+
 
 const styles = StyleSheet.create({
   container:
@@ -22,14 +24,14 @@ backgroundColor:"white"
   { 
 
       justifyContent: 'center',
-marginTop:hp(30)
+marginTop:hp(25)
       },
       Cellview:{
         //flexDirection:'row',
         //justifyContent: 'space-evenly' ,
         marginBottom:10,
         marginTop:10,
-        marginHorizontal:wp('18%')
+        paddingHorizontal:wp(15)
       },
       root: {
         //flex: 1, 
@@ -44,13 +46,14 @@ marginTop:hp(30)
       },
       codeFieldRoot: 
       {
-      marginTop: 10
+      marginTop: 10,
+      
       },
       cell: {
       //paddingVertical:0,
       //paddingBottom:2,
       marginTop:10,
-      width: wp('15%'),
+      width: wp(10),
       height: hp('5.5%'),
       lineHeight: hp('5%'),
       fontSize:hp('3%'),
@@ -58,13 +61,12 @@ marginTop:hp(30)
    borderBottomWidth:2,
       borderColor: Colors.border,
       textAlign: 'center',
-      //margin:2,
-      borderRadius:12,
       alignItems:'center',
       backgroundColor: 'white',
       justifyContent:'center',  
       alignItems:'center',
-      alignSelf:'center'
+      alignSelf:'center',
+      paddingHorizontal:wp(5)
       },
       focusCell: {
       borderColor: 'gray',
@@ -74,11 +76,11 @@ marginTop:hp(30)
       justifyContent:'center',
       },
       Cellmaintext:
-      {color:Colors.activeinputs,
+      {
+        color:Colors.Appthemecolor,
       textAlign:'center',
-      alignSelf:'center',
-      width: wp('50%'),
-      fontWeight:'400'
+fontFamily:fontFamily.Poppins_Medium,
+fontSize:hp(1.8)
       },
 });
 export default styles;

@@ -1,6 +1,7 @@
 const Colors = {
     Appthemecolor:'#000EDD',
     greytext:'#707070',
+    placeholdertextgrey:'#E5E5E5',
     greyicons:'#8D8D8D',
     icon:'#BEBEBE',
     border:'#DCDCDC',

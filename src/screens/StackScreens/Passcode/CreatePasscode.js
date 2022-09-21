@@ -93,8 +93,8 @@ const [predata] = useState(route.params);
         key={index}
         style={[styles.cell, animatedCellStyle]}
         onLayout={getCellOnLayoutHandler(index)}>
-        {symbol || (isFocused ? <Cursor /> :   <Octicons name="dot-fill" color={'#D7D7D7'} size={32} 
-    style={{margin:5}}/>)}
+        {symbol || (isFocused ? <Cursor /> :   <Octicons name="dot-fill" color={'#D7D7D7'} size={30} 
+    style={{margin:0}}/>)}
       </AnimatedText>
     );
   };

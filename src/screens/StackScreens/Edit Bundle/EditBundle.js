@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   StatusBar,
+  ScrollView,
   Image
 } from 'react-native';
 
@@ -204,7 +205,7 @@ const EditBundle = ({navigation}) => {
 
   const renderHiddenItem = (data, rowMap) => {
     const rowActionAnimatedValue = new Animated.Value(95);
-    const rowHeightAnimatedValue = new Animated.Value(95);
+    const rowHeightAnimatedValue = new Animated.Value(83);
 
     return (
       <HiddenItemWithActions
@@ -219,6 +220,10 @@ const EditBundle = ({navigation}) => {
   };
 
   return (
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    showsHorizontalScrollIndicator={false}
+    >
     <View style={styles.container}>
       <View style={{marginBottom:hp(3)}}>
       <CustomHeader
@@ -245,6 +250,8 @@ const EditBundle = ({navigation}) => {
         onRightAction={onRightAction}
         onLeftActionStatusChange={onLeftActionStatusChange}
         onRightActionStatusChange={onRightActionStatusChange}
+        // showsVerticalScrollIndicator={false}
+        // showsHorizontalScrollIndicator={false}
       />
 </View>
 
@@ -276,7 +283,9 @@ from bundle?</Text>
      </View>   
 
           <View style={styles.btnview}>
-                <TouchableOpacity onPress={()=>{setModalVisible(true)}}>
+                <TouchableOpacity onPress={()=>{setModalVisible(true),     setTimeout(() => {
+                            setModalVisible(false) // Stack Name
+                          }, 3000)}}>
                 <View style={[styles.btmbtn,{backgroundColor:'white'}]}>
                         <Text style={[styles.btmbtntext,{color:'blue'}]}>
                             Yes</Text>
@@ -299,6 +308,7 @@ from bundle?</Text>
  onPress={()=> {setModalVisible(false)}}
                 />
     </View>
+    </ScrollView>
   );
 };
 

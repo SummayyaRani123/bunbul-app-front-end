@@ -139,7 +139,7 @@ you email
       </View>
       <View style={{flexDirection:"row",justifyContent:'space-between',alignItems:"center",
       //backgroundColor:'red',
-      width:wp(70),alignSelf:'center',marginTop:hp(2),
+      width:wp(90),alignSelf:'center',marginTop:hp(2),
    // paddingHorizontal:wp(6)
     }}>
   <View style={{justifyContent:'flex-start',alignSelf:'flex-start'}}>
@@ -163,7 +163,7 @@ children ={children}
 
     {({ remainingTime }) =>
     
-    <Text style={{color:'white',fontSize:hp(2)}}>{remainingTime}</Text>}
+    <Text style={{color:'black',fontSize:hp(2)}}>{remainingTime}(s)</Text>}
   </CountdownCircleTimer>
   :
   null
@@ -171,11 +171,10 @@ children ={children}
   </View>
 <TouchableOpacity 
 disabled={disabletimer}
-      onPress={()=> setdisableTimer(true)}                           
+      onPress={()=> setdisableTimer(true)}    
+      style={{marginLeft:wp(8)}}                       
        >
-      <View style={{alignItems:'flex-end'}}>
-<Text style={styles.Cellmaintext}>Resend</Text>
-</View>
+<Text style={styles.Cellmaintext}>Resend Code</Text>
 </TouchableOpacity>
       </View>
 <View style={styles.buttonview}>

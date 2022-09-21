@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 /////////////app components//////////////////
+import LottieModal from '../../../components/LottieModal/LottieModal';
 import CustomModal from '../../../components/Modal/CustomModal';
 import CustomHeader from '../../../components/CustomHeader/CustomHeader';
 import CustomButtonhere from '../../../components/Button/CustomButton';
@@ -137,7 +138,7 @@ const UpdatePassword = ({ navigation,route }) => {
             enablesReturnKeyAutomatically
             right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Current Password'}
           />
 
@@ -155,7 +156,7 @@ const UpdatePassword = ({ navigation,route }) => {
             enablesReturnKeyAutomatically
             right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'New Password'}
           />
   
@@ -170,7 +171,7 @@ const UpdatePassword = ({ navigation,route }) => {
             enablesReturnKeyAutomatically
             right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Confirm New Password'}
           />
 
@@ -180,20 +181,12 @@ const UpdatePassword = ({ navigation,route }) => {
               title={'Update'}
               widthset={'60%'}
               //onPress={() => formValidation()}
+              onPress={() => {setModalVisible(true), setTimeout(() => {
+                setModalVisible(false) // Stack Name
+              }, 3000)}}
             /></View>
                   <View>
-        <CustomModal 
-                modalVisible={modalVisible}
-                CloseModal={() => setModalVisible(false)}
-                Icon={  <AntDesign
-                  name="checkcircle"
-                  color={Colors.Appthemecolor}
-                  size={100}
-              />}
-              text={'Password Changed'}
-          buttontext={'Go to Login'}
- onPress={()=> {navigation.navigate('Login'),setModalVisible(false)}}
-                /> 
+
         </View>
         <Snackbar
           duration={400}
@@ -206,6 +199,18 @@ const UpdatePassword = ({ navigation,route }) => {
           }}>
           {snackbarValue.value}
         </Snackbar>
+        <LottieModal 
+                modalVisible={modalVisible}
+                CloseModal={() => setModalVisible(false)}
+                Icon={  <AntDesign
+                  name="checkcircle"
+                  color={Colors.Appthemecolor}
+                  size={100}
+              />}
+              text={'Password Updated'}
+          buttontext={'Go to Login'}
+ onPress={()=> {navigation.navigate('Login'),setModalVisible(false)}}
+                /> 
     </SafeAreaView>
 
   )

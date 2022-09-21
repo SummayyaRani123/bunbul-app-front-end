@@ -157,6 +157,7 @@ useEffect(() => {
       <View style={AuthInputstyles.inputview}>
           <TextInput
             label={'Password'}
+            color={'#797979'}
             onChangeText={setPassword}
             returnKeyType = {"next"}
             onSubmitEditing={() => { ref_input2.current.focus()}}
@@ -169,13 +170,14 @@ useEffect(() => {
             enablesReturnKeyAutomatically
             right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Enter Password'}
           />
 
       <TextInput
             ref={ref_input2}
             label={'Confirm Password'}
+            color={'#797979'}
             onChangeText={setConfirmPassword}
             style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
@@ -184,7 +186,7 @@ useEffect(() => {
             enablesReturnKeyAutomatically
             right={<TextInput.Icon name={rightIcon} color={Colors.greyicons} 
             onPress={handlePasswordVisibility}   />}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Enter Password'}
           />
      </View>
@@ -195,7 +197,9 @@ useEffect(() => {
               loading={loading}
               disabled={disable}
               //onPress={() => formValidation()}
-              onPress={() => setModalVisible(true)}
+              onPress={() => {setModalVisible(true), setTimeout(() => {
+                setModalVisible(false) // Stack Name
+              }, 3000)}}
             /></View>
         <View>
         <LottieModal 

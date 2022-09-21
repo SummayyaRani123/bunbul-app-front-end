@@ -27,11 +27,19 @@ const DATA = [
     title: 'First Item',
   },
   {
+    id: '3ac68afc-c60tt5-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3dgga1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+  {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
     title: 'Second Item',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-3daii1-471f-bd96-145571e29d72',
     title: 'Third Item',
   },
 ];
@@ -192,12 +200,12 @@ const [masterDataSource1, setMasterDataSource1] = useState([]);
    <View>
    <TouchableOpacity style={{marginRight:wp(10)}}
                      onPress={()=> SearchClear()}> 
-     <Ionicons name="search" size={23} style={styles.Icon}/>
+     <Ionicons name="search" size={20} style={styles.Icon}/>
      </TouchableOpacity>
    </View>
 
    </View>
-   <View style={{marginTop:hp(2) ,marginBottom:hp(5),marginHorizontal:wp(2)}}>
+   <View style={{marginTop:hp(2) ,marginBottom:hp(5),marginHorizontal:wp(7)}}>
    <Text style={styles.balancetext}>Most Popular Searches</Text>
    </View>
 
@@ -214,10 +222,10 @@ const [masterDataSource1, setMasterDataSource1] = useState([]);
 
 <View style={{flexDirection:'row',justifyContent:'space-around'}}>
 <Feath name="arrow-up-right" size={23} style={styles.Icon}/>
-<Text style={styles.balancetext}>Most Popular Searches</Text>
+<Text style={styles.balancetext}>Lorem ipsum dolor </Text>
 
 </View>
-<Ionicons name="close" size={23} style={styles.Icon}/>
+<Ionicons name="close" size={18} style={styles.Icon}/>
 
 </View>
     <View style={styles.borderview}></View>

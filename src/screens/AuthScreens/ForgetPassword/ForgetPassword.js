@@ -147,7 +147,7 @@ const formValidation = async () => {
             activeUnderlineColor={Colors.appgreycolor}
             keyboardType='email-address'
             autoCapitalize={'none'}
-            placeholderTextColor={Colors.greytext}
+            placeholderTextColor={Colors.placeholdertextgrey}
             placeholder={'Enter your Email'}
           />
 

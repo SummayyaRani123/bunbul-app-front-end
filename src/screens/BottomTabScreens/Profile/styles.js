@@ -109,10 +109,10 @@ marginTop:hp(10),
         color: 'black',
     },
     details: {
-        fontSize: hp(1.7),
+        fontSize: hp(1.6),
     fontFamily:fontFamily.Poppins_Regular,
         color: 'black',
-        width:wp(70)
+        width:wp(60)
     },
 });
 export default styles;
