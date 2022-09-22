@@ -19,15 +19,15 @@ const AuthLastTextstyles = StyleSheet.create({
   },
   lasttext:
   {
-    color: 'black',
-    fontWeight: '600',
-    fontSize: hp('2%'),
+    color: Colors.greytext,
+fontFamily:fontFamily.Poppins_Regular,
+    fontSize: hp(1.8),
   },
   lasttext1:
   {
     color: Colors.Appthemecolor,
-    fontWeight: '600',
-    fontSize: hp('2%'),
+    fontFamily:fontFamily.Poppins_Medium,
+    fontSize: hp(1.8),
   },
 
 });

@@ -187,6 +187,23 @@ height:'85%',
 width:'16%',
       borderRadius:50
     },
-
+    headerFooterStyle: {
+      width:wp(22),
+height:hp(10),
+borderRadius:20,
+      borderColor:Colors.Appthemecolor,
+      borderWidth:3,
+      alignItems:'center',
+      justifyContent:'center',
+      alignSelf:'center',
+      marginTop:hp(1),
+    },
+    textStyle: {
+      textAlign: 'center',
+      color:Colors.Appthemecolor,
+      fontFamily:fontFamily.Poppins_SemiBold,
+      fontSize: hp(1.8),
+      padding: 7,
+    },
 });
 export default styles;

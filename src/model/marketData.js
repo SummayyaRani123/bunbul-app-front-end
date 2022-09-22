@@ -4,7 +4,7 @@ const PopularImages = [
     { image: require("./market/hulu.png") },
     { image: require("./market/hbomax.png") },
     { image: require("./market/youtube.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   const   VideoImages = [
     { image: require("./market/Netflix.png") },
@@ -14,7 +14,7 @@ const PopularImages = [
     { image: require("./market/peacock.png") },
     { image: require("./market/Paramount.png") },
     { image: require("./market/espn.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   const AudioImages = [
     { image: require("./market/spotify.png") },
@@ -24,14 +24,14 @@ const PopularImages = [
     { image: require("./market/audible.png") },
     { image: require("./market/tidal.png") },
     { image: require("./market/scribd.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   const PersonalCareImages = [
     { image: require("./market/ipsy.png") },
     { image: require("./market/brichbox.png") },
     { image: require("./market/scenbird.png") },
     { image: require("./market/dollar.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   const DeliveryImages = [
     { image: require("./market/dp.png") },
@@ -39,7 +39,7 @@ const PopularImages = [
     { image: require("./market/UberOne.png") },
     { image: require("./market/lyftpink.png") },
     { image: require("./market/walmart.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   const NewsImages = [
     { image: require("./market/wallstreet.png") },
@@ -47,7 +47,7 @@ const PopularImages = [
     { image: require("./market/newyork.png") },
     { image: require("./market/washington.png") },
     { image: require("./market/Athletic.png") },
-    { image: require("./market/viewall.png") },
+    // { image: require("./market/viewall.png") },
   ];
   export const Popular = [
       {
@@ -80,11 +80,11 @@ const PopularImages = [
         logo: PopularImages[4].image,
         type:'Youtube'
       },
-      {
-        id:6,
-        title: " ",
-        logo: PopularImages[5].image,
-      },
+      // {
+      //   id:6,
+      //   title: " ",
+      //   logo: PopularImages[5].image,
+      // },
   ];
   export const Video = [
     {
@@ -122,11 +122,11 @@ const PopularImages = [
         title: "ESPN +",
         logo: VideoImages[6].image,
       },
-    {
-      id:8,
-      title: " ",
-      logo: VideoImages[7].image,
-    },
+    // {
+    //   id:8,
+    //   title: " ",
+    //   logo: VideoImages[7].image,
+    // },
 ];
 export const Audio = [
     {
@@ -164,11 +164,11 @@ export const Audio = [
         title: "Scribd",
         logo: AudioImages[6].image,
       },
-    {
-      id:8,
-      title: " ",
-      logo: AudioImages[7].image,
-    },
+    // {
+    //   id:8,
+    //   title: " ",
+    //   logo: AudioImages[7].image,
+    // },
 ];
 export const PersonalCare = [
     {
@@ -191,11 +191,11 @@ export const PersonalCare = [
       title: "Dollar Shave Club",
       logo: PersonalCareImages[3].image,
     },
-    {
-      id:5,
-      title: "Audible",
-      logo: PersonalCareImages[4].image,
-    },
+    // {
+    //   id:5,
+    //   title: "Audible",
+    //   logo: PersonalCareImages[4].image,
+    // },
     // {
     //   id:6,
     //   title: " ",
@@ -228,11 +228,11 @@ export const Delivery = [
       title: "Walmart +",
       logo: DeliveryImages[4].image,
     },
-    {
-      id:6,
-      title: " ",
-      logo: DeliveryImages[5].image,
-    },
+    // {
+    //   id:6,
+    //   title: " ",
+    //   logo: DeliveryImages[5].image,
+    // },
 ];
 export const News = [
     {
@@ -260,10 +260,10 @@ export const News = [
       title: "The Athletic",
       logo: NewsImages[4].image,
     },
-    {
-      id:6,
-      title: " ",
-      logo: NewsImages[5].image,
-    },
+    // {
+    //   id:6,
+    //   title: " ",
+    //   logo: NewsImages[5].image,
+    // },
 ];
   

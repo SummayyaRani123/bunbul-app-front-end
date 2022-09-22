@@ -110,6 +110,23 @@ const[UserImage,setUserImage]= useState()
     console.log("error", error)
   })
 }
+
+const ListFooter = (props) => {
+ console.log('props',props)
+  return (
+    <TouchableOpacity onPress={()=>navigation.navigate('SeeAll',{catname:props})}>
+    <View style={styles.headerFooterStyle}>
+
+      <Text style={styles.textStyle}>
+       View All
+      </Text>
+    
+    </View>
+    </TouchableOpacity>
+
+  );
+};
+
   return (
     <ScrollView
     showsVerticalScrollIndicator={false}
@@ -182,7 +199,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={Popular}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('Popular')}
                 renderItem={({ item }) =>
                 <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Market',
                 navtype:item.type})}> 
@@ -221,7 +238,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={Video}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('Video Entertainment')}
                 renderItem={({ item }) =>
                   <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
@@ -256,7 +273,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={Audio}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('Audio Entertainment')}
                 renderItem={({ item }) =>
                   <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
@@ -291,7 +308,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={PersonalCare}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('Personal care')}
                 renderItem={({ item }) =>
                   <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
@@ -326,7 +343,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={Delivery}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('Delivery')}
                 renderItem={({ item }) =>
                   <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
@@ -361,7 +378,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
 
       <FlatList
                 data={News}
-                //numColumns={4}
+                ListFooterComponent={ListFooter('News')}
                 renderItem={({ item }) =>
                   <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}

@@ -41,7 +41,7 @@ forgettext:
   { 
       justifyContent: 'center',
       alignSelf:'center',
-      marginTop:hp(20)
+      marginTop:hp(19)
       },
 });
 export default styles;
